@@ -3,17 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rafa | Portfólio de Edição de Vídeo</title>
+<title>Rafael Del Valle | Portfólio de Edição de Vídeo</title>
 <style>
 :root{--bg:#ffffff;--fg:#1b3aa0;--mut:#5f73b8;--card:#eff2f9;--line:#1b3aa0;--acc:#1b3aa0;--acc2:#4a6bdc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:"Helvetica Neue",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
 .hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:40px 24px;max-width:1100px;margin:0 auto;position:relative}
-.hero:before{content:"";position:absolute;right:-40px;top:12%;width:min(420px,70vw);aspect-ratio:1;border-radius:50%;background:var(--card);z-index:-1}
 .eyebrow{display:inline-block;align-self:flex-start;background:var(--acc);color:#fff;padding:6px 16px;border-radius:99px;font-size:.85rem}
-h1{font-size:clamp(3rem,11vw,7rem);font-weight:300;line-height:1;margin:18px 0 16px;letter-spacing:-.04em}
+h1{font-size:clamp(2.6rem,9vw,6rem);font-weight:300;line-height:1;margin:18px 0 16px;letter-spacing:-.04em}
 .sub{color:var(--mut);max-width:520px;font-size:1.15rem;margin:0 0 28px}
-.cta{align-self:flex-start;border:3px solid var(--acc);background:var(--acc);color:#fff;padding:12px 28px;border-radius:99px;text-decoration:none;font-weight:700}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.cta.alt{background:transparent;color:var(--acc)}
+.cta{border:3px solid var(--acc);background:var(--acc);color:#fff;padding:12px 28px;border-radius:99px;text-decoration:none;font-weight:700}
 main{max-width:1100px;margin:0 auto;padding:24px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
 .chip{border:1.5px solid var(--line);background:transparent;color:var(--fg);padding:6px 16px;border-radius:99px;cursor:pointer;font:inherit;font-size:.9rem}
@@ -44,9 +45,9 @@ footer a{color:var(--acc);font-weight:700}
 <body>
 <section class="hero">
 <div class="eyebrow">Portfólio · Edição de vídeo</div>
-<h1>Rafa</h1>
+<h1>Rafael Del Valle</h1>
 <p class="sub">Edição que dá ritmo, clareza e personalidade à história de cada marca.</p>
-<a class="cta" href="#trabalhos">Ver trabalhos</a>
+<div class="ctas"><a class="cta" href="#trabalhos">Ver trabalhos</a><a class="cta alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Portfólio no Behance &#8599;</a></div>
 </section>
 <main id="trabalhos">
 <div class="chips" id="chips"></div>
@@ -61,7 +62,7 @@ footer a{color:var(--acc);font-weight:700}
 // EDITE AQUI: cole o link do YouTube ou Vimeo em "url"
 var videos=[
 {title:"Marco Legal - Lei 14.300",cat:"Institucional",desc:"Vídeo sobre a Lei 14.300, o marco legal da geração distribuída.",role:"Edição de vídeo",url:"https://youtu.be/N3DUOeJanYE"},
-{title:"Mulan - Apresentação de Dança",cat:"Cultura",desc:"Registro da apresentação de dança de Mulan.",role:"Edição de vídeo",url:"https://youtube.com/shorts/b2yaA5nFZ3Q"},
+{title:"Mulan - Apresentação de Dança",cat:"Cultura",desc:"Registro da apresentação de dança de Mulan.",role:"Edição de vídeo",url:"https://youtube.com/shorts/W7DJ8e4DoP0"},
 {title:"Intersolar Athon e PowerRev",cat:"Eventos",desc:"Cobertura da participação da Athon e da PowerRev na Intersolar.",role:"Edição de vídeo",url:"https://youtube.com/shorts/mXuHYjER0Pg"},
 {title:"Liderança Athon - Mensagem para os Estagiários",cat:"Institucional",desc:"Mensagem da liderança da Athon direcionada aos estagiários.",role:"Edição de vídeo",url:"https://youtu.be/MPo11PYSWV0"},
 {title:"Gamaro Indica - Teatro Maria Della Costa",cat:"Cultura",desc:"Indicação do espetáculo em cartaz no Teatro Maria Della Costa.",role:"Edição de vídeo",url:"https://youtube.com/shorts/Tz6lfzUiB_Q"}
