@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rafa | Portfólio de Edição de Vídeo</title>
+<style>
+:root{--bg:#ffffff;--fg:#1b3aa0;--mut:#5f73b8;--card:#eff2f9;--line:#1b3aa0;--acc:#1b3aa0;--acc2:#4a6bdc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Helvetica Neue",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:40px 24px;max-width:1100px;margin:0 auto;position:relative}
+.hero:before{content:"";position:absolute;right:-40px;top:12%;width:min(420px,70vw);aspect-ratio:1;border-radius:50%;background:var(--card);z-index:-1}
+.eyebrow{display:inline-block;align-self:flex-start;background:var(--acc);color:#fff;padding:6px 16px;border-radius:99px;font-size:.85rem}
+h1{font-size:clamp(3rem,11vw,7rem);font-weight:300;line-height:1;margin:18px 0 16px;letter-spacing:-.04em}
+.sub{color:var(--mut);max-width:520px;font-size:1.15rem;margin:0 0 28px}
+.cta{align-self:flex-start;border:3px solid var(--acc);background:var(--acc);color:#fff;padding:12px 28px;border-radius:99px;text-decoration:none;font-weight:700}
+main{max-width:1100px;margin:0 auto;padding:24px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.chip{border:1.5px solid var(--line);background:transparent;color:var(--fg);padding:6px 16px;border-radius:99px;cursor:pointer;font:inherit;font-size:.9rem}
+.chip.on{background:var(--acc);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{text-align:left;border:3px solid var(--line);background:var(--bg);border-radius:28px;overflow:hidden;cursor:pointer;color:inherit;font:inherit;padding:0;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.thumb{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:#fff}
+.body{padding:14px 18px 20px}
+.tag{display:inline-block;background:var(--acc);color:#fff;font-size:.72rem;padding:3px 12px;border-radius:99px}
+.body h2{font-size:1.25rem;font-weight:800;margin:8px 0 4px}
+.body p{margin:0 0 8px;color:var(--mut);font-size:.92rem}
+.role{font-size:.8rem;color:var(--mut)}
+footer{max-width:1100px;margin:40px auto 0;padding:24px;border-top:3px solid var(--line);color:var(--mut)}
+footer a{color:var(--acc);font-weight:700}
+#modal{position:fixed;inset:0;background:rgba(10,22,70,.95);display:none;flex-direction:column;align-items:center;justify-content:center;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));z-index:10;color:#fff}
+#modal.open{display:flex}
+.stage{width:min(1000px,100%)}
+.frame{aspect-ratio:16/9;background:#000;border-radius:20px;overflow:hidden}
+.frame.v{aspect-ratio:9/16;width:calc(min(72vh,680px)*9/16);margin:0 auto}
+.frame iframe{width:100%;height:100%;border:0}
+.info{margin-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.info h3{margin:0;font-size:1.1rem}.info span{color:#b9c5f0;font-size:.9rem}
+.nav button,.nav a{background:#fff;border:0;color:var(--acc);font-weight:700;border-radius:99px;padding:8px 16px;cursor:pointer;font:inherit;font-size:.85rem;font-weight:700;text-decoration:none;display:inline-block;margin-left:6px}
+.x{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:16px;font-size:1.8rem;background:none;border:0;color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="eyebrow">Portfólio · Edição de vídeo</div>
+<h1>Rafa</h1>
+<p class="sub">Edição que dá ritmo, clareza e personalidade à história de cada marca.</p>
+<a class="cta" href="#trabalhos">Ver trabalhos</a>
+</section>
+<main id="trabalhos">
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+</main>
+<footer>Vamos conversar? <a href="mailto:rafael.dvs.01@gmail.com">rafael.dvs.01@gmail.com</a></footer>
+<div id="modal"><button class="x" id="close" aria-label="Fechar">&times;</button>
+<div class="stage"><div class="frame" id="frame"></div>
+<div class="info"><div><h3 id="mt"></h3><span id="ms"></span></div>
+<div class="nav"><button id="prev">&larr; Anterior</button><button id="next">Próximo &rarr;</button><a id="ext" target="_blank" rel="noopener">Abrir no site original</a></div></div></div></div>
+<script>
+// EDITE AQUI: cole o link do YouTube ou Vimeo em "url"
+var videos=[
+{title:"Marco Legal - Lei 14.300",cat:"Institucional",desc:"Vídeo sobre a Lei 14.300, o marco legal da geração distribuída.",role:"Edição de vídeo",url:"https://youtu.be/N3DUOeJanYE"},
+{title:"Mulan - Apresentação de Dança",cat:"Cultura",desc:"Registro da apresentação de dança de Mulan.",role:"Edição de vídeo",url:"https://youtube.com/shorts/b2yaA5nFZ3Q"},
+{title:"Intersolar Athon e PowerRev",cat:"Eventos",desc:"Cobertura da participação da Athon e da PowerRev na Intersolar.",role:"Edição de vídeo",url:"https://youtube.com/shorts/mXuHYjER0Pg"},
+{title:"Liderança Athon - Mensagem para os Estagiários",cat:"Institucional",desc:"Mensagem da liderança da Athon direcionada aos estagiários.",role:"Edição de vídeo",url:"https://youtu.be/MPo11PYSWV0"},
+{title:"Gamaro Indica - Teatro Maria Della Costa",cat:"Cultura",desc:"Indicação do espetáculo em cartaz no Teatro Maria Della Costa.",role:"Edição de vídeo",url:"https://youtube.com/shorts/Tz6lfzUiB_Q"}
+];
+var EMBED=true; // true = player dentro da página (funciona em hospedagem própria)
+var cur="Todos",list=[],idx=0;
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function embed(u){var m;if(!u)return"";
+ if(m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/))return"https://www.youtube-nocookie.com/embed/"+m[1]+"?autoplay=1&rel=0";
+ if(m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))return"https://player.vimeo.com/video/"+m[1]+"?autoplay=1";return""}
+function render(){
+ var cats=["Todos"].concat(videos.map(function(v){return v.cat}).filter(function(c,i,a){return a.indexOf(c)===i}));
+ var ch=document.getElementById("chips");ch.innerHTML="";
+ cats.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c===cur?" on":"");b.textContent=c;b.onclick=function(){cur=c;render()};ch.appendChild(b)});
+ list=videos.filter(function(v){return cur==="Todos"||v.cat===cur});
+ var g=document.getElementById("grid");g.innerHTML="";
+ list.forEach(function(v,i){var b=document.createElement("button");b.className="card";
+  b.innerHTML='<div class="thumb" style="background:linear-gradient('+(120+i*35)+'deg,var(--acc),var(--acc2))">&#9654;</div><div class="body"><div class="tag">'+esc(v.cat)+'</div><h2>'+esc(v.title)+'</h2><p>'+esc(v.desc)+'</p><div class="role">'+esc(v.role)+(v.url?(EMBED?"":" · Assistir no YouTube &#8599;"):" · em breve")+'</div></div>';
+  b.onclick=function(){if(!v.url)return;if(EMBED)open(i);else window.open(v.url,"_blank","noopener")};g.appendChild(b)});
+}
+function open(i){idx=(i+list.length)%list.length;var v=list[idx],e=embed(v.url);
+ document.getElementById("frame").className="frame"+(/\/shorts\//.test(v.url)?" v":"");
+ document.getElementById("frame").innerHTML=e?'<iframe src="'+e+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':"";
+ document.getElementById("mt").textContent=v.title;document.getElementById("ms").textContent=v.cat+" · "+v.role;
+ document.getElementById("ext").href=v.url;document.getElementById("modal").classList.add("open")}
+function shut(){document.getElementById("frame").innerHTML="";document.getElementById("modal").classList.remove("open")}
+document.getElementById("close").onclick=shut;
+document.getElementById("prev").onclick=function(){open(idx-1)};
+document.getElementById("next").onclick=function(){open(idx+1)};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")shut()});
+render();
+</script>
+</body>
+</html>
