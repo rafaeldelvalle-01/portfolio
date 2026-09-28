@@ -23,6 +23,12 @@ main{max-width:1100px;margin:0 auto;padding:24px}
 .card{text-align:left;border:3px solid var(--line);background:var(--bg);border-radius:28px;overflow:hidden;cursor:pointer;color:inherit;font:inherit;padding:0;transition:transform .2s}
 .card:hover{transform:translateY(-4px)}
 .thumb{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:#fff}
+.thumb{position:relative;overflow:hidden}
+.thumb img{position:absolute;object-fit:cover}
+.thumb .bg{inset:0;width:100%;height:100%;filter:blur(18px) brightness(.8);transform:scale(1.2)}
+.thumb .fg{left:50%;top:0;transform:translateX(-50%);height:100%;width:100%}
+.thumb .fg.v{width:auto;aspect-ratio:9/16}
+.thumb .play{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;background:rgba(27,58,160,.88);display:flex;align-items:center;justify-content:center;font-size:1.3rem;padding-left:4px}
 .body{padding:14px 18px 20px}
 .tag{display:inline-block;background:var(--acc);color:#fff;font-size:.72rem;padding:3px 12px;border-radius:99px}
 .body h2{font-size:1.25rem;font-weight:800;margin:8px 0 4px}
@@ -65,11 +71,13 @@ var videos=[
 {title:"Mulan - Apresentação de Dança",cat:"Cultura",desc:"Registro da apresentação de dança de Mulan.",role:"Edição de vídeo",url:"https://youtube.com/shorts/W7DJ8e4DoP0"},
 {title:"Intersolar Athon e PowerRev",cat:"Eventos",desc:"Cobertura da participação da Athon e da PowerRev na Intersolar.",role:"Edição de vídeo",url:"https://youtube.com/shorts/mXuHYjER0Pg"},
 {title:"Liderança Athon - Mensagem para os Estagiários",cat:"Institucional",desc:"Mensagem da liderança da Athon direcionada aos estagiários.",role:"Edição de vídeo",url:"https://youtu.be/MPo11PYSWV0"},
-{title:"Gamaro Indica - Teatro Maria Della Costa",cat:"Cultura",desc:"Indicação do espetáculo em cartaz no Teatro Maria Della Costa.",role:"Edição de vídeo",url:"https://youtube.com/shorts/Tz6lfzUiB_Q"}
+{title:"Gamaro Indica - Teatro Maria Della Costa",cat:"Cultura",desc:"Indicação do espetáculo em cartaz no Teatro Maria Della Costa.",role:"Edição de vídeo",url:"https://youtube.com/shorts/Tz6lfzUiB_Q"},
+{title:"Podcast - PowerRev",cat:"Institucional",desc:"Corte do podcast da PowerRev.",role:"Edição de vídeo",url:"https://youtube.com/shorts/Etf4lmR1lWg"}
 ];
 var EMBED=true; // true = player dentro da página (funciona em hospedagem própria)
 var cur="Todos",list=[],idx=0;
 function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function thumbImgs(v){var m=v.url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);if(!m)return"";var u="https://i.ytimg.com/vi/"+m[1]+"/hqdefault.jpg",sh=/\/shorts\//.test(v.url);return'<img class="bg" src="'+u+'" alt="" onerror="this.remove()"><img class="fg'+(sh?" v":"")+'" src="'+u+'" alt="Capa do vídeo" onerror="this.remove()">'}
 function embed(u){var m;if(!u)return"";
  if(m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/))return"https://www.youtube-nocookie.com/embed/"+m[1]+"?autoplay=1&rel=0";
  if(m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))return"https://player.vimeo.com/video/"+m[1]+"?autoplay=1";return""}
@@ -80,7 +88,7 @@ function render(){
  list=videos.filter(function(v){return cur==="Todos"||v.cat===cur});
  var g=document.getElementById("grid");g.innerHTML="";
  list.forEach(function(v,i){var b=document.createElement("button");b.className="card";
-  b.innerHTML='<div class="thumb" style="background:linear-gradient('+(120+i*35)+'deg,var(--acc),var(--acc2))">&#9654;</div><div class="body"><div class="tag">'+esc(v.cat)+'</div><h2>'+esc(v.title)+'</h2><p>'+esc(v.desc)+'</p><div class="role">'+esc(v.role)+(v.url?(EMBED?"":" · Assistir no YouTube &#8599;"):" · em breve")+'</div></div>';
+  b.innerHTML='<div class="thumb" style="background:linear-gradient('+(120+i*35)+'deg,var(--acc),var(--acc2))">'+thumbImgs(v)+'<span class="play">&#9654;</span></div><div class="body"><div class="tag">'+esc(v.cat)+'</div><h2>'+esc(v.title)+'</h2><p>'+esc(v.desc)+'</p><div class="role">'+esc(v.role)+(v.url?(EMBED?"":" · Assistir no YouTube &#8599;"):" · em breve")+'</div></div>';
   b.onclick=function(){if(!v.url)return;if(EMBED)open(i);else window.open(v.url,"_blank","noopener")};g.appendChild(b)});
 }
 function open(i){idx=(i+list.length)%list.length;var v=list[idx],e=embed(v.url);
