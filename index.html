@@ -14,7 +14,7 @@ nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-fi
 nav div{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 nav b{font-weight:800}nav span a{text-decoration:none;margin-left:18px;font-size:.95rem}nav span a:hover{text-decoration:underline}
 section{max-width:1100px;margin:0 auto;padding:72px 24px 0}
-.hero{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
+.hero{min-height:58vh;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
 .badge{align-self:flex-start;background:var(--acc);color:#fff;padding:6px 16px;border-radius:99px;font-size:.85rem}
 h1{font-size:clamp(2.6rem,9vw,6rem);font-weight:300;line-height:1;margin:18px 0 14px;letter-spacing:-.04em}
 .role{font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--mut);margin:0 0 28px}
@@ -92,6 +92,13 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 .edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .edu h3{margin:10px 0 6px;font-size:1.2rem}.edu p{margin:0;color:var(--mut);font-size:.92rem}
 #ferramentas h4{margin:20px 0 10px;font-size:1rem}#ferramentas h4:first-child{margin-top:0}
+.herotools{margin-top:40px}
+.hl{margin:0 0 12px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.softrow{margin-top:28px}.softrow h4{margin:0 0 10px;font-size:1rem}
+#ferramentas{padding-top:32px}
+.wabtn{background:#25D366;border-color:#25D366;color:#fff}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:99px;box-shadow:0 8px 20px -6px rgba(0,0,0,.35);transition:transform .2s}
+.wa:hover{transform:translateY(-3px)}
 </style>
 </head>
 <body>
@@ -101,7 +108,13 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 <div class="badge">Aberto a projetos freelance</div>
 <h1>Rafael Del Valle</h1>
 <p class="role">Designer Gráfico e Analista de Marketing | Branding | UI | Vídeo</p>
-<div class="ctas"><a class="btn" href="#design">Ver projetos</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a></div>
+<div class="ctas"><a class="btn" href="#design">Ver projetos</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a><a class="btn alt" href="Rafael-Del-Valle-Curriculo.pdf" download>Baixar currículo</a></div>
+</section>
+
+<section id="ferramentas">
+<h2>Ferramentas</h2>
+<div class="box"><h4>Design</h4><div class="tools"><div class="tool" style="--b:#31A8FF;--d:#001E36;--t:#001E36"><i>Ps</i>Photoshop</div><div class="tool" style="--b:#FF9A00;--d:#330000;--t:#330000"><i>Ai</i>Illustrator</div><div class="tool" style="--b:#FF3366;--d:#49021F;--t:#fff"><i>Id</i>InDesign</div><div class="tool" style="--b:#00C4CC;--d:#7D2AE8;--t:#fff"><i>Cv</i>Canva</div></div><h4>Vídeo e motion</h4><div class="tools"><div class="tool" style="--b:#9999FF;--d:#00005B;--t:#00005B"><i>Pr</i>Premiere Pro</div><div class="tool" style="--b:#9999FF;--d:#00005B;--t:#00005B"><i>Ae</i>After Effects</div></div><h4>UI e web</h4><div class="tools"><div class="tool" style="--b:#A259FF;--d:#1E1E1E;--t:#fff"><i>Fg</i>Figma</div><div class="tool" style="--b:#21759B;--d:#fff;--t:#fff"><i>Wp</i>WordPress</div><div class="tool" style="--b:#D30C5C;--d:#92003B;--t:#fff"><i>El</i>Elementor</div></div><h4>Marketing e gestão</h4><div class="tools"><div class="tool" style="--b:#1F6FEB;--d:#E8F0FE;--t:#fff"><i>Rd</i>RD Station</div><div class="tool" style="--b:#F06A6A;--d:#fff;--t:#fff"><i>As</i>Asana</div><div class="tool" style="--b:#E37400;--d:#fff;--t:#fff"><i>GA</i>Google Analytics</div><div class="tool" style="--b:#0866FF;--d:#fff;--t:#fff"><i>Me</i>Meta Business Suite</div></div>
+<h4>Soft skills</h4><div class="pills"><span>Criatividade</span><span>Trabalho em equipe</span><span>Gestão de tempo</span><span>Comunicação</span><span>Liderança</span><span>Proatividade</span><span>Empatia</span></div></div>
 </section>
 
 <section id="sobre">
@@ -143,18 +156,14 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 </div>
 </section>
 
-<section id="ferramentas">
-<h2>Ferramentas</h2>
-<div class="box"><h4>Design</h4><div class="tools"><div class="tool" style="--b:#31A8FF;--d:#001E36;--t:#001E36"><i>Ps</i>Photoshop</div><div class="tool" style="--b:#FF9A00;--d:#330000;--t:#330000"><i>Ai</i>Illustrator</div><div class="tool" style="--b:#FF3366;--d:#49021F;--t:#fff"><i>Id</i>InDesign</div><div class="tool" style="--b:#00C4CC;--d:#7D2AE8;--t:#fff"><i>Cv</i>Canva</div></div><h4>Vídeo e motion</h4><div class="tools"><div class="tool" style="--b:#9999FF;--d:#00005B;--t:#00005B"><i>Pr</i>Premiere Pro</div><div class="tool" style="--b:#9999FF;--d:#00005B;--t:#00005B"><i>Ae</i>After Effects</div></div><h4>UI e web</h4><div class="tools"><div class="tool" style="--b:#A259FF;--d:#1E1E1E;--t:#fff"><i>Fg</i>Figma</div><div class="tool" style="--b:#21759B;--d:#fff;--t:#fff"><i>Wp</i>WordPress</div><div class="tool" style="--b:#D30C5C;--d:#92003B;--t:#fff"><i>El</i>Elementor</div></div><h4>Marketing e gestão</h4><div class="tools"><div class="tool" style="--b:#1F6FEB;--d:#E8F0FE;--t:#fff"><i>Rd</i>RD Station</div><div class="tool" style="--b:#F06A6A;--d:#fff;--t:#fff"><i>As</i>Asana</div><div class="tool" style="--b:#E37400;--d:#fff;--t:#fff"><i>GA</i>Google Analytics</div><div class="tool" style="--b:#0866FF;--d:#fff;--t:#fff"><i>Me</i>Meta Business Suite</div></div>
-<h4>Soft skills</h4><div class="pills"><span>Criatividade</span><span>Trabalho em equipe</span><span>Gestão de tempo</span><span>Comunicação</span><span>Liderança</span><span>Proatividade</span><span>Empatia</span></div></div>
-</section>
 
 <section id="contato">
 <div class="box soft"><h2>Vamos conversar?</h2><p class="lead" style="margin:0 auto">Aberto a projetos freelance e parcerias.</p>
-<div class="ctas"><a class="btn" href="mailto:rafael.dvs.01@gmail.com">rafael.dvs.01@gmail.com</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a></div></div>
+<div class="ctas"><a class="btn wabtn" href="https://wa.me/5511979912151?text=Ol%C3%A1%20Rafael%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com">rafael.dvs.01@gmail.com</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a><a class="btn alt" href="Rafael-Del-Valle-Curriculo.pdf" download>Baixar currículo</a></div></div>
 </section>
 <footer>&copy; Rafael Del Valle · São Paulo, SP</footer>
 
+<a class="wa" href="https://wa.me/5511979912151?text=Ol%C3%A1%20Rafael%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WhatsApp</a>
 <div id="pmodal"><div class="pin"><div class="phead"><h3 id="pt"></h3><div><a id="pl" target="_blank" rel="noopener">Ver no Behance &#8599;</a><button class="px" id="pclose" aria-label="Fechar">&times;</button></div></div><div id="pbody"></div></div></div>
 <div id="modal"><button class="x" id="close" aria-label="Fechar">&times;</button>
 <div class="stage"><div class="frame" id="frame"></div>
