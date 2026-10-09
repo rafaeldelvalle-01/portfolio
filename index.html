@@ -102,10 +102,32 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 .wabtn{background:#25D366;border-color:#25D366;color:#fff}
 .wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:99px;box-shadow:0 8px 20px -6px rgba(0,0,0,.35);transition:transform .2s}
 .wa:hover{transform:translateY(-3px)}
+#orcamento .calc{max-width:780px}
+.cbar{display:flex;gap:6px;margin-bottom:8px}.cbar i{flex:1;height:6px;border-radius:99px;background:#d5dcf0}.cbar i.on{background:var(--acc)}
+.cst{color:var(--mut);font-size:.85rem;margin:0 0 18px}
+.q{border:0;padding:0;margin:0 0 24px}.q legend{font-weight:800;padding:0;margin-bottom:10px}.q small{display:block;color:var(--mut);font-weight:400;font-size:.85rem}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:2px solid var(--acc);background:#fff;color:var(--acc);border-radius:99px;padding:8px 18px;font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
+.opt:hover{background:var(--card)}.opt.sel,.opt.sel:hover{background:var(--acc);color:#fff}
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.svc{text-align:left;border:3px solid var(--acc);background:#fff;color:var(--acc);border-radius:24px;padding:16px 18px;font:inherit;cursor:pointer;transition:transform .2s,background .2s}
+.svc:hover{transform:translateY(-3px);background:var(--card)}.svc b{display:block;font-size:1.05rem}.svc span{color:var(--mut);font-size:.85rem}
+.qty{display:inline-flex;align-items:center;gap:10px}.qty button{width:40px;height:40px;border-radius:50%;border:2px solid var(--acc);background:#fff;color:var(--acc);font:inherit;font-size:1.3rem;font-weight:700;cursor:pointer}
+.qty output{min-width:36px;text-align:center;font-size:1.3rem;font-weight:800}
+.calc input[type=date],.calc textarea{font:inherit;color:var(--fg);border:2px solid var(--acc);border-radius:16px;padding:10px 14px;background:#fff;width:100%;max-width:340px}
+.calc textarea{max-width:none;min-height:90px;resize:vertical}
+.chk{display:flex;gap:8px;align-items:center;margin-top:10px;color:var(--mut);font-size:.92rem}
+.cnav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}
+button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opacity:.4;cursor:not-allowed}
+.res{text-align:center;padding:8px 0 4px}.res small{color:var(--mut)}
+.res b{display:block;font-size:clamp(2rem,7vw,3.2rem);font-weight:300;letter-spacing:-.03em;line-height:1.15;margin:6px 0}
+.res .nt{color:var(--mut);font-size:.9rem;max-width:520px;margin:10px auto 0}
+.sum{list-style:none;padding:0;margin:20px 0;border-top:1px solid #d5dcf0}.sum li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid #d5dcf0;font-size:.92rem}.sum li span:first-child{color:var(--mut)}.sum li span:last-child{text-align:right;font-weight:600}
+.rcta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
 </style>
 </head>
 <body>
-<nav><div><b>Rafael Del Valle</b><span><a href="#sobre">Sobre</a><a href="#design">Design</a><a href="#videos">Vídeos</a><a href="#experiencia">Experiência</a><a href="#contato">Contato</a></span></div></nav>
+<nav><div><b>Rafael Del Valle</b><span><a href="#sobre">Sobre</a><a href="#design">Design</a><a href="#videos">Vídeos</a><a href="#experiencia">Experiência</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a></span></div></nav>
 
 <section class="hero">
 <div class="badge">Aberto a projetos freelance</div>
@@ -160,6 +182,12 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 </section>
 
 
+<section id="orcamento">
+<h2>Simule seu orçamento</h2>
+<p class="lead">Responda algumas perguntas e receba uma estimativa na hora. O valor final é confirmado após conversarmos sobre o briefing.</p>
+<div class="box calc" id="calc"></div>
+</section>
+
 <section id="contato">
 <div class="box soft"><h2>Vamos conversar?</h2><p class="lead" style="margin:0 auto">Aberto a projetos freelance e parcerias.</p>
 <div class="ctas"><a class="btn wabtn" href="https://wa.me/5511979912151?text=Ol%C3%A1%20Rafael%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com">rafael.dvs.01@gmail.com</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a><a class="btn alt" href="Rafael-Del-Valle-Curriculo.pdf" download>Baixar currículo</a></div></div>
@@ -179,7 +207,7 @@ var PROJ="projetos/"; // pasta das imagens no repositório
 function gal(f,p,n){var a=[];for(var i=1;i<=n;i++)a.push(PROJ+f+"/"+p+" "+i);return a}
 var B="https://mir-s3-cdn-cf.behance.net/projects/404/",G="https://www.behance.net/gallery/";
 var designs=[
-{t:"AIYE",c:"Branding", img:"5493c2256887541.Y3JvcCwyMTE0LDE2NTQsMTA5LDA.png",u:"256887541/AIYE-O-Mundo-em-Nos",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
+{t:"AIYE",c:"Branding", img:"76742e256887541.6ac9135a06668.png",u:"",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
 {t:"PowerRev",c:"Design",img:"4db0af224186733.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186733/PowerRev",imgs:gal("powerrev","PowerRev",17)},
 {t:"Athon Energia",c:"Design",img:"962493224186803.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186803/Athon-Energia",imgs:gal("athon","Athon",20)},
 {t:"Laços | Programa de Saúde Mental",c:"Design",img:"9daf16229244597.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"229244597/Lacos-Programa-de-Saude-Mental",imgs:gal("lacos","Laços",4)},
@@ -237,6 +265,134 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")shutP()});
 var rv=document.querySelectorAll("h2,.lead,.box,.card,.tool,.stat,.tl");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add("in");io.unobserve(t);setTimeout(function(){t.classList.remove("rv","in");t.style.transitionDelay=""},1100)}})},{threshold:.12});
  rv.forEach(function(el,k){el.classList.add("rv");el.style.transitionDelay=(k%4)*70+"ms";io.observe(el)})}
+
+// ===== SIMULADOR DE ORÇAMENTO =====
+// Edite aqui os valores (em R$). v = valor base por unidade; add = soma por unidade;
+// mult = multiplicador; flat = valor fixo somado uma vez ao projeto.
+var CALC={
+ minimo:400,
+ faixa:[0.9,1.25],
+ urgencia:[{ate:4,m:1.5,l:"Prazo urgente"},{ate:9,m:1.25,l:"Prazo curto"},{ate:19,m:1.1,l:"Prazo apertado"},{ate:99999,m:1,l:"Prazo confortável"}],
+ desconto:[{de:10,m:0.8},{de:5,m:0.9}],
+ servicos:[
+ {id:"edicao",nome:"Edição de vídeo",desc:"Você já tem o material gravado",q:[
+  {id:"qtd",t:"Quantos vídeos?",qtd:1,max:20},
+  {id:"dur",t:"Duração de cada vídeo",base:1,o:[{l:"Até 1 min",v:450},{l:"1 a 3 min",v:950},{l:"3 a 5 min",v:1500},{l:"5 a 10 min",v:2300}]},
+  {id:"mat",t:"Como está o material bruto?",o:[{l:"Organizado e enxuto"},{l:"Muito material, precisa de decupagem",mult:1.2}]},
+  {id:"mot",t:"Motion graphics",o:[{l:"Nenhum"},{l:"Básico (títulos, lower thirds, logo)",mult:1.15},{l:"Avançado (animações elaboradas)",mult:1.4}]},
+  {id:"leg",t:"Legendas em português",o:[{l:"Não preciso"},{l:"Sim",add:80}]},
+  {id:"fmt",t:"Formatos de entrega",o:[{l:"Um formato só"},{l:"16:9 e 9:16",add:150}]},
+  {id:"rev",t:"Rodadas de revisão",dica:"1 rodada já está incluída",o:[{l:"1 rodada"},{l:"2 rodadas",flat:200},{l:"3 rodadas",flat:400}]}]},
+ {id:"producao",nome:"Vídeo institucional completo",desc:"Roteiro, gravação e edição",q:[
+  {id:"niv",t:"Nível de produção",base:1,o:[{l:"Institucional (roteiro, captação, motion básico)",v:3200},{l:"Estratégico (direção dedicada, motion avançado)",v:4500}]},
+  {id:"loc",t:"Locais de gravação",o:[{l:"1 local"},{l:"2 locais",flat:600},{l:"3 ou mais",flat:1200}]},
+  {id:"cor",t:"Cortes extras para redes sociais",o:[{l:"Nenhum"},{l:"3 cortes",flat:450},{l:"6 cortes",flat:800}]},
+  {id:"reg",t:"Onde será a gravação?",o:[{l:"Grande São Paulo"},{l:"Fora de São Paulo (deslocamento à parte)",flat:500}]},
+  {id:"rev",t:"Rodadas de revisão",dica:"2 rodadas já estão incluídas",o:[{l:"2 rodadas"},{l:"3 rodadas",flat:200},{l:"4 rodadas",flat:400}]}]},
+ {id:"identidade",nome:"Identidade visual",desc:"Logo, paleta, tipografia e manual",q:[
+  {id:"esc",t:"O que você precisa?",base:1,o:[{l:"Logo, paleta e tipografia",v:1500},{l:"Identidade completa com manual de marca",v:3200}]},
+  {id:"apl",t:"Aplicações da marca",o:[{l:"Nenhuma por enquanto"},{l:"Kit básico (cartão, perfil de redes, timbrado)",flat:600},{l:"Kit completo (papelaria, redes, apresentação)",flat:1400}]},
+  {id:"pes",t:"Pesquisa de mercado e naming",o:[{l:"Não preciso"},{l:"Sim",flat:800}]},
+  {id:"rev",t:"Rodadas de revisão",dica:"2 rodadas já estão incluídas",o:[{l:"2 rodadas"},{l:"3 rodadas",flat:200},{l:"4 rodadas",flat:400}]}]},
+ {id:"artes",nome:"Artes para redes sociais",desc:"Posts, carrosséis e peças de campanha",q:[
+  {id:"tip",t:"Tipo de peça",base:1,o:[{l:"Post simples",v:90},{l:"Post elaborado (ilustração, composição)",v:180},{l:"Carrossel",v:100,per:70,sl:"Quantas lâminas por carrossel?",sd:8,sm:15}]},
+  {id:"qtd",t:"Quantas peças no total?",dica:"Cada carrossel conta como 1 peça",qtd:1,max:60},
+  {id:"mar",t:"Você já tem identidade visual?",o:[{l:"Sim, sigo o manual"},{l:"Não, preciso definir o estilo",mult:1.25}]},
+  {id:"ani",t:"Animar as peças?",o:[{l:"Não"},{l:"Sim, animação simples",add:80}]}]},
+ {id:"material",nome:"Material gráfico e apresentações",desc:"Flyers, decks, catálogos e e-books",q:[
+  {id:"tip",t:"Tipo de material",base:1,o:[{l:"Flyer, cartaz ou banner",v:250},{l:"Apresentação",v:200,per:55,sl:"Quantos slides?",sd:10,sm:60},{l:"Catálogo ou e-book",v:300,per:85,sl:"Quantas páginas?",sd:16,sm:60}]},
+  {id:"qtd",t:"Quantos materiais?",qtd:1,max:20},
+  {id:"con",t:"Conteúdo e imagens",o:[{l:"Você fornece tudo"},{l:"Preciso de ajuda com textos e imagens",mult:1.25}]},
+  {id:"rev",t:"Rodadas de revisão",dica:"2 rodadas já estão incluídas",o:[{l:"2 rodadas"},{l:"3 rodadas",flat:200}]}]},
+ {id:"ui",nome:"UI e landing page",desc:"Telas, sites e páginas de venda",q:[
+  {id:"esc",t:"Escopo",base:1,o:[{l:"Landing page (1 página longa)",v:2200},{l:"Site institucional",v:1500,per:700,sl:"Quantas páginas?",sd:5,sm:20},{l:"Telas de app",v:500,per:600,sl:"Quantas telas?",sd:5,sm:40}]},
+  {id:"ent",t:"Entrega",o:[{l:"Só o design (Figma)"},{l:"Design + publicação (WordPress/Elementor)",mult:1.6}]},
+  {id:"txt",t:"Textos do site",o:[{l:"Você fornece"},{l:"Preciso de ajuda com os textos",flat:400}]}]}
+ ]
+};
+(function(){
+var C=CALC,root=document.getElementById("calc");
+var st={step:1,svc:null,ans:{},qty:1,sub:1,date:"",nodate:false,obs:""};
+function E(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function brl(n){return "R$ "+n.toLocaleString("pt-BR",{maximumFractionDigits:0})}
+function today(){var d=new Date();d.setHours(0,0,0,0);return d}
+function iso(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function days(){if(st.nodate||!st.date)return 99999;var p=st.date.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]);return Math.ceil((d-today())/864e5)}
+function bq(){return svc().q.filter(function(x){return x.base})[0]}
+function bo(){var q=bq();return q?q.o[st.ans[q.id]]:null}
+function qq(){return svc().q.filter(function(x){return x.qtd})[0]}
+function svc(){return C.servicos.filter(function(s){return s.id===st.svc})[0]}
+function calc(){
+ var s=svc(),unit=0,add=0,mult=1,flat=0,qty=1;
+ s.q.forEach(function(q){
+  if(q.qtd){qty=st.qty;return}
+  var o=q.o[st.ans[q.id]];if(!o)return;
+  if(q.base)unit+=o.v+(o.per?o.per*st.sub:0);else{add+=o.add||0;mult*=o.mult||1;flat+=o.flat||0}
+ });
+ var disc=1;for(var i=0;i<C.desconto.length;i++){if(qty>=C.desconto[i].de){disc=C.desconto[i].m;break}}
+ var sub=(unit*mult+add)*qty*disc+flat,d=days(),u=C.urgencia.filter(function(x){return d<=x.ate})[0];
+ var total=Math.max(sub*u.m,C.minimo);
+ return{lo:Math.floor(total*C.faixa[0]/10)*10,hi:Math.ceil(total*C.faixa[1]/10)*10,urg:u,d:d,qty:qty}
+}
+function fmtDate(){if(st.nodate||!st.date)return "Ainda sem data definida";var p=st.date.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
+function rows(){
+ var s=svc(),r=[["Serviço",s.nome]];
+ s.q.forEach(function(q){r.push([q.t.replace(/\?$/,""),q.qtd?String(st.qty):q.o[st.ans[q.id]].l]);if(q.base){var b=q.o[st.ans[q.id]];if(b.per)r.push([b.sl.replace(/\?$/,""),String(st.sub)])}});
+ r.push(["Prazo",fmtDate()]);return r
+}
+function head(n,t){var b="";for(var i=1;i<=4;i++)b+='<i class="'+(i<=n?"on":"")+'"></i>';return '<div class="cbar">'+b+'</div><p class="cst">Etapa '+n+' de 4 · '+t+'</p>'}
+function draw(){
+ var h="";
+ if(st.step===1){
+  h=head(1,"O que você precisa?")+'<div class="svcs">'+C.servicos.map(function(s){return '<button type="button" class="svc" data-a="svc" data-v="'+s.id+'"><b>'+E(s.nome)+'</b><span>'+E(s.desc)+'</span></button>'}).join("")+'</div>';
+ }else if(st.step===2){
+  var s=svc();h=head(2,s.nome);
+  s.q.forEach(function(q){
+   h+='<fieldset class="q"><legend>'+E(q.t)+(q.dica?'<small>'+E(q.dica)+'</small>':"")+'</legend>';
+   if(q.qtd)h+='<div class="qty"><button type="button" data-a="qm" aria-label="Diminuir">&minus;</button><output>'+st.qty+'</output><button type="button" data-a="qp" aria-label="Aumentar">+</button></div>';
+   else h+='<div class="opts">'+q.o.map(function(o,i){return '<button type="button" class="opt'+(st.ans[q.id]===i?" sel":"")+'" data-a="opt" data-q="'+q.id+'" data-v="'+i+'">'+E(o.l)+'</button>'}).join("")+'</div>';
+   h+='</fieldset>';
+   if(q.base){var b=q.o[st.ans[q.id]];if(b.per)h+='<fieldset class="q"><legend>'+E(b.sl)+'</legend><div class="qty"><button type="button" data-a="sm" aria-label="Diminuir">&minus;</button><output>'+st.sub+'</output><button type="button" data-a="sp" aria-label="Aumentar">+</button></div></fieldset>'}
+  });
+  h+='<div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next">Continuar</button></div>';
+ }else if(st.step===3){
+  h=head(3,"Prazo")+'<fieldset class="q"><legend>Para quando você precisa?</legend><input type="date" id="cdate" min="'+iso(today())+'" value="'+st.date+'"'+(st.nodate?" disabled":"")+'><label class="chk"><input type="checkbox" id="cnod"'+(st.nodate?" checked":"")+'> Ainda não sei a data</label></fieldset>'
+   +'<fieldset class="q"><legend>Quer contar mais sobre o projeto? <small>Opcional</small></legend><textarea id="cobs" placeholder="Referências, empresa, objetivo do projeto...">'+E(st.obs)+'</textarea></fieldset>'
+   +'<div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next" id="cgo"'+(!st.nodate&&!st.date?" disabled":"")+'>Ver estimativa</button></div>';
+ }else{
+  var r=calc(),msg="Olá Rafael, fiz uma simulação no seu portfólio.\n\n"+rows().map(function(x){return x[0]+": "+x[1]}).join("\n")+"\n\nEstimativa: "+brl(r.lo)+" a "+brl(r.hi)+(st.obs?"\n\nSobre o projeto: "+st.obs:"")+"\n\nPodemos conversar?";
+  var nt="Estimativa baseada nas respostas acima. O valor final é confirmado após o briefing.";
+  if(r.d<=19)nt="<b style='display:inline;font-size:inherit;font-weight:800;letter-spacing:0;margin:0'>"+r.urg.l+":</b> a estimativa já considera um acréscimo pela urgência. "+nt;
+  if(st.svc==="producao"&&st.ans.niv===1)nt+=" No nível estratégico, o valor parte desta faixa e varia conforme a complexidade.";
+  h=head(4,"Sua estimativa")+'<div class="res"><small>Investimento estimado</small><b>'+brl(r.lo)+' a '+brl(r.hi)+'</b><p class="nt">'+nt+'</p></div>'
+   +'<ul class="sum">'+rows().map(function(x){return '<li><span>'+E(x[0])+'</span><span>'+E(x[1])+'</span></li>'}).join("")+'</ul>'
+   +'<div class="rcta"><a class="btn wabtn" target="_blank" rel="noopener" href="https://wa.me/5511979912151?text='+encodeURIComponent(msg)+'">Enviar pelo WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com?subject='+encodeURIComponent("Orçamento: "+svc().nome)+'&body='+encodeURIComponent(msg)+'">Enviar por e-mail</a><button type="button" class="btn alt" data-a="redo">Refazer</button></div>';
+ }
+ root.innerHTML=h;
+}
+function setSvc(id){st.svc=id;st.ans={};st.qty=1;svc().q.forEach(function(q){if(!q.qtd)st.ans[q.id]=0});var b=bo();st.sub=b&&b.per?b.sd:1;st.step=2}
+root.addEventListener("click",function(e){
+ var t=e.target.closest("[data-a]");if(!t)return;var a=t.dataset.a,top=root.getBoundingClientRect().top<0;
+ if(a==="svc")setSvc(t.dataset.v);
+ else if(a==="opt"){st.ans[t.dataset.q]=+t.dataset.v;if(bq().id===t.dataset.q){var b=bo();st.sub=b.per?b.sd:1}}
+ else if(a==="sm")st.sub=Math.max(1,st.sub-1);
+ else if(a==="sp")st.sub=Math.min(bo().sm,st.sub+1);
+ else if(a==="qm")st.qty=Math.max(1,st.qty-1);
+ else if(a==="qp")st.qty=Math.min(qq().max,st.qty+1);
+ else if(a==="next")st.step++;
+ else if(a==="back")st.step--;
+ else if(a==="redo"){st.step=1;st.svc=null}
+ draw();if(top&&(a==="svc"||a==="next"||a==="back"||a==="redo"))root.scrollIntoView({behavior:"smooth",block:"start"});
+});
+root.addEventListener("input",function(e){
+ var t=e.target;
+ if(t.id==="cdate"){st.date=t.value}
+ else if(t.id==="cnod"){st.nodate=t.checked;var d=document.getElementById("cdate");d.disabled=t.checked}
+ else if(t.id==="cobs"){st.obs=t.value}
+ var g=document.getElementById("cgo");if(g)g.disabled=!st.nodate&&!st.date;
+});
+draw();
+})();
 </script>
 </body>
 </html>
