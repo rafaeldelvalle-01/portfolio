@@ -128,6 +128,10 @@ button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opaci
 .res .nt{color:var(--mut);font-size:.9rem;max-width:520px;margin:10px auto 0}
 .sum{list-style:none;padding:0;margin:20px 0;border-top:1px solid #d5dcf0}.sum li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid #d5dcf0;font-size:.92rem}.sum li span:first-child{color:var(--mut)}.sum li span:last-child{text-align:right;font-weight:600}
 .rcta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+nav span a{margin-left:4px;padding:6px 14px;border-radius:99px;transition:background .2s,color .2s}
+nav span a:hover{text-decoration:none;background:var(--card)}
+nav span a.on{background:var(--acc);color:#fff;font-weight:700}
+@media(max-width:600px){nav span a{padding:5px 10px;font-size:.88rem}}
 </style>
 </head>
 <body>
@@ -398,6 +402,22 @@ root.addEventListener("input",function(e){
  var g=document.getElementById("cgo");if(g)g.disabled=!st.nodate&&!st.date;
 });
 draw();
+})();
+
+// destaque do menu conforme a seção visível
+(function(){
+var links=[].slice.call(document.querySelectorAll("nav span a[href^='#']"));
+var secs=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});
+var cur=-1,tk=false;
+function upd(){
+ tk=false;var y=window.scrollY+120,n=-1;
+ for(var i=0;i<secs.length;i++){if(secs[i]&&secs[i].offsetTop<=y)n=i}
+ if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)n=secs.length-1;
+ if(n===cur)return;cur=n;
+ links.forEach(function(a,i){var on=i===n;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")})
+}
+window.addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
+window.addEventListener("resize",upd);upd();
 })();
 </script>
 </body>
