@@ -99,26 +99,10 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 .wabtn{background:#25D366;border-color:#25D366;color:#fff}
 .wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:99px;box-shadow:0 8px 20px -6px rgba(0,0,0,.35);transition:transform .2s}
 .wa:hover{transform:translateY(-3px)}
-.stp{color:var(--mut);font-size:.85rem;margin:0 0 6px}
-#calc h3{margin:0 0 12px;font-size:1.25rem}
-.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.svc{text-align:left;border:3px solid var(--acc);background:#fff;border-radius:24px;padding:16px;cursor:pointer;font:inherit;color:inherit;transition:background .2s,transform .2s}
-.svc:hover{background:var(--card);transform:translateY(-3px)}
-.svc b{display:block;font-size:1.05rem}.svc span{color:var(--mut);font-size:.88rem}
-.qh{font-weight:700;margin:16px 0 0}
-.opts{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 6px}
-.opt{border:2px solid var(--acc);background:#fff;color:var(--acc);border-radius:99px;padding:8px 16px;font:inherit;font-size:.92rem;cursor:pointer;transition:background .15s,color .15s}
-.opt.on{background:var(--acc);color:#fff}
-#calc .ctas{margin-top:22px}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-button.btn{font:inherit;font-weight:700;cursor:pointer}
-.res{font-size:clamp(1.9rem,6vw,3rem);font-weight:300;letter-spacing:-.03em;margin:4px 0 2px;line-height:1.1}
-.sum{list-style:none;padding:0;margin:16px 0}.sum li{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid #d5dcf0;font-size:.92rem}.sum li span:first-child{color:var(--mut)}.sum li span:last-child{text-align:right;font-weight:600}
-.cnote{color:var(--mut);font-size:.85rem;margin:0}
 </style>
 </head>
 <body>
-<nav><div><b>Rafael Del Valle</b><span><a href="#sobre">Sobre</a><a href="#design">Design</a><a href="#videos">Vídeos</a><a href="#experiencia">Experiência</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a></span></div></nav>
+<nav><div><b>Rafael Del Valle</b><span><a href="#sobre">Sobre</a><a href="#design">Design</a><a href="#videos">Vídeos</a><a href="#experiencia">Experiência</a><a href="#contato">Contato</a></span></div></nav>
 
 <section class="hero">
 <div class="badge">Aberto a projetos freelance</div>
@@ -173,12 +157,6 @@ button.btn{font:inherit;font-weight:700;cursor:pointer}
 </section>
 
 
-<section id="orcamento">
-<h2>Simulador de orçamento</h2>
-<p class="lead">Responda algumas perguntas e receba uma estimativa inicial para o seu projeto. O valor final é confirmado depois que conversarmos sobre o briefing.</p>
-<div class="box soft" id="calc"></div>
-</section>
-
 <section id="contato">
 <div class="box soft"><h2>Vamos conversar?</h2><p class="lead" style="margin:0 auto">Aberto a projetos freelance e parcerias.</p>
 <div class="ctas"><a class="btn wabtn" href="https://wa.me/5511979912151?text=Ol%C3%A1%20Rafael%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com">rafael.dvs.01@gmail.com</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a><a class="btn alt" href="Rafael-Del-Valle-Curriculo.pdf" download>Baixar currículo</a></div></div>
@@ -198,7 +176,6 @@ var PROJ="projetos/"; // pasta das imagens no repositório
 function gal(f,p,n){var a=[];for(var i=1;i<=n;i++)a.push(PROJ+f+"/"+p+" "+i);return a}
 var B="https://mir-s3-cdn-cf.behance.net/projects/404/",G="https://www.behance.net/gallery/";
 var designs=[
-{t:"AIYE",c:"Branding",u:"",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
 {t:"PowerRev",c:"Design",img:"4db0af224186733.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186733/PowerRev",imgs:gal("powerrev","PowerRev",17)},
 {t:"Athon Energia",c:"Design",img:"962493224186803.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186803/Athon-Energia",imgs:gal("athon","Athon",20)},
 {t:"Laços | Programa de Saúde Mental",c:"Design",img:"9daf16229244597.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"229244597/Lacos-Programa-de-Saude-Mental",imgs:gal("lacos","Laços",4)},
@@ -226,9 +203,8 @@ function isV(u){return /\/shorts\//.test(u)}
 function embed(u){var i=yid(u);return i?"https://www.youtube-nocookie.com/embed/"+i+"?autoplay=1&rel=0":""}
 // design cards
 var dg=document.getElementById("dgrid");
-designs.forEach(function(d,i){var a=document.createElement("a");a.className="card";var has=d.imgs&&d.imgs.length;if(d.u){a.href=G+d.u;a.target="_blank";a.rel="noopener"}else a.href="#";
- a.innerHTML='<div class="thumb full"><img '+(d.img?'src="'+B+d.img+'"':'')+' alt="Capa do projeto '+esc(d.t)+'" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="tag">'+esc(d.c)+'</span><h3>'+esc(d.t)+'</h3><p>'+(d.desc||(has?"Ver projeto":"Ver no Behance &#8599;"))+'</p></div>';
- if(!d.img&&has){var im=a.querySelector("img");im.dataset.b=d.imgs[0];im.dataset.k=0;im.onerror=function(){tryNext(im)};tryNext(im)}
+designs.forEach(function(d,i){var a=document.createElement("a");a.className="card";a.href=G+d.u;a.target="_blank";a.rel="noopener";var has=d.imgs&&d.imgs.length;
+ a.innerHTML='<div class="thumb full"><img src="'+(d.cover||B+d.img)+'" alt="Capa do projeto '+esc(d.t)+'" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="tag">'+esc(d.c)+'</span><h3>'+esc(d.t)+'</h3><p>'+(has?"Ver projeto":"Ver no Behance &#8599;")+'</p></div>';
  if(has)a.onclick=function(e){e.preventDefault();openP(i)};dg.appendChild(a)});
 // video cards
 var vg=document.getElementById("vgrid"),idx=0;
@@ -247,80 +223,12 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")shut()});
 
 var EXTS=["jpg","png","JPG","PNG","jpeg","webp"];
 function tryNext(el){var k=+el.dataset.k;if(k>=EXTS.length){el.remove();return}el.dataset.k=k+1;el.src=encodeURI(el.dataset.b)+"."+EXTS[k]}
-function openP(i){var d=designs[i];document.getElementById("pt").textContent=d.t;var pl=document.getElementById("pl");pl.style.display=d.u?"":"none";if(d.u)pl.href=G+d.u;
+function openP(i){var d=designs[i];document.getElementById("pt").textContent=d.t;document.getElementById("pl").href=G+d.u;
  var pb=document.getElementById("pbody");pb.innerHTML="";d.imgs.forEach(function(b){var im=document.createElement("img");im.alt=d.t;im.loading="lazy";im.dataset.b=b;im.dataset.k=0;im.onerror=function(){tryNext(im)};pb.appendChild(im);tryNext(im)});
  var m=document.getElementById("pmodal");m.classList.add("open");m.scrollTop=0;document.body.style.overflow="hidden"}
 function shutP(){document.getElementById("pmodal").classList.remove("open");document.body.style.overflow=""}
 document.getElementById("pclose").onclick=shutP;
 document.addEventListener("keydown",function(e){if(e.key==="Escape")shutP()});
-
-// SIMULADOR-INICIO
-// EDITE AQUI: valores em reais. Cada opção é [texto, valor somado, multiplicador (opcional)].
-var PRICING={
- mostrarValor:true,       // false = esconde os números e só envia o resumo pelo WhatsApp
- faixa:[0.9,1.15],        // a estimativa aparece como uma faixa (total x 0,9 até total x 1,15)
- prazo:[["Urgente (até 7 dias)",0,1.3],["Em 2 a 3 semanas",0,1],["Mais de 1 mês",0,1]],
- services:[
- {t:"Edição de vídeo",d:"Institucional, redes sociais e eventos",q:[
-  {l:"Duração do vídeo",o:[["Até 30 segundos",600],["30 a 60 segundos",900],["1 a 3 minutos",1600],["3 a 10 minutos",3000]]},
-  {l:"Formatos de entrega",o:[["1 formato",0],["2 formatos (16:9 e 9:16)",250],["3 ou mais formatos",500]]},
-  {l:"Gravação das imagens",o:[["Já tenho o material",0],["Preciso de gravação (região de São Paulo)",700]]},
-  {l:"Animação",o:[["Sem animação",0],["Textos e logo animados",400],["Ilustrações animadas",1200]]},
-  {l:"Legendas",o:[["Não preciso",0],["Em português",150],["Em mais de um idioma",350]]},
-  {l:"Trilha e banco de imagens",o:[["Já tenho",0],["Preciso de licenças",250]]},
-  {l:"Revisões",o:[["Até 2 rodadas",0],["Até 4 rodadas",200]]}]},
- {t:"Motion e animação",d:"Logo animado, vinhetas e vídeos explicativos",q:[
-  {l:"O que você precisa",o:[["Logo animado",500],["Vinheta ou abertura",800],["Pacote de peças animadas para redes",1200],["Vídeo explicativo (textos e ícones)",1800]]},
-  {l:"Duração",o:[["Até 15 segundos",0],["15 a 60 segundos",400],["Mais de 1 minuto",1200]]},
-  {l:"Artes e ilustrações",o:[["Já tenho prontas",0],["Preciso que sejam criadas",600]]},
-  {l:"Trilha e efeitos sonoros",o:[["Não preciso",0],["Preciso",250]]},
-  {l:"Revisões",o:[["Até 2 rodadas",0],["Até 4 rodadas",200]]}]},
- {t:"Peças de design",d:"Redes sociais, material impresso e apresentações",q:[
-  {l:"Tipo de peça",o:[["Redes sociais",300],["Material impresso",450],["Apresentação ou documento",600]]},
-  {l:"Quantidade",o:[["1 a 3 peças",0,1],["4 a 10 peças",0,2.2],["11 a 30 peças",0,4.5]]},
-  {l:"Identidade visual",o:[["Sigo um manual de marca existente",0],["Preciso definir o estilo",300]]},
-  {l:"Revisões",o:[["Até 2 rodadas",0],["Até 4 rodadas",150]]}]},
- {t:"Identidade visual",d:"Logo, manual de marca e aplicações",q:[
-  {l:"Entrega",o:[["Logo e paleta de cores",1800],["Identidade completa com manual de marca",3500],["Identidade completa com manual e aplicações",5500]]},
-  {l:"Pesquisa e conceito",o:[["Já tenho o briefing",0],["Preciso de pesquisa e conceito",700]]},
-  {l:"Revisões",o:[["Até 3 rodadas",0],["Até 5 rodadas",300]]}]},
- {t:"Site e UI",d:"Landing page, site institucional e protótipo",q:[
-  {l:"O que você precisa",o:[["Landing page",1500],["Protótipo de UI no Figma",2000],["Site institucional (até 5 páginas)",3500]]},
-  {l:"Conteúdo",o:[["Envio textos e imagens",0],["Preciso de ajuda com o conteúdo",500]]},
-  {l:"Extras",o:[["Nenhum",0],["Formulário e integrações",400],["Animações e interações",600]]},
-  {l:"Revisões",o:[["Até 2 rodadas",0],["Até 4 rodadas",250]]}]}
- ]};
-function calcTotal(si,pi,ans){var s=PRICING.services[si],t=0,m=PRICING.prazo[pi][2];
- s.q.forEach(function(q,i){var o=q.o[ans[i]];t+=o[1];m*=(o[2]||1)});return t*m}
-function faixa(total){var r=function(x){return Math.round(x/50)*50};return[r(total*PRICING.faixa[0]),r(total*PRICING.faixa[1])]}
-function money(n){return n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0})}
-function resumo(si,pi,ans){var s=PRICING.services[si],l=[["Serviço",s.t],["Prazo",PRICING.prazo[pi][0]]];
- s.q.forEach(function(q,i){l.push([q.l,q.o[ans[i]][0]])});return l}
-// SIMULADOR-FIM
-var cs={step:1,svc:null,prazo:null,ans:{}};
-function pick(box,list,cur,on){list.forEach(function(t,k){var b=document.createElement("button");b.type="button";b.className="opt"+(cur===k?" on":"");b.textContent=t;b.setAttribute("aria-pressed",cur===k?"true":"false");
- b.onclick=function(){[].forEach.call(box.children,function(x){x.classList.remove("on");x.setAttribute("aria-pressed","false")});b.classList.add("on");b.setAttribute("aria-pressed","true");on(k)};box.appendChild(b)})}
-function renderCalc(){var c=document.getElementById("calc");c.innerHTML="";
- if(cs.step===1){c.innerHTML='<p class="stp">Passo 1 de 3</p><h3>O que você quer fazer?</h3><div class="svcs"></div>';
-  var g=c.querySelector(".svcs");
-  PRICING.services.forEach(function(s,i){var b=document.createElement("button");b.type="button";b.className="svc";b.innerHTML="<b>"+s.t+"</b><span>"+s.d+"</span>";
-   b.onclick=function(){cs.svc=i;cs.prazo=null;cs.ans={};cs.step=2;renderCalc()};g.appendChild(b)});
- }else if(cs.step===2){var s=PRICING.services[cs.svc];
-  c.innerHTML='<p class="stp">Passo 2 de 3 · '+s.t+'</p><h3>Para quando você precisa?</h3><div class="opts" id="op"></div><div id="qs"></div><div class="ctas"><button type="button" class="btn alt" id="bk">Voltar</button><button type="button" class="btn" id="go" disabled>Ver estimativa</button></div>';
-  var go=c.querySelector("#go");function chk(){go.disabled=!(cs.prazo!==null&&s.q.every(function(q,i){return cs.ans[i]!==undefined}))}
-  pick(c.querySelector("#op"),PRICING.prazo.map(function(p){return p[0]}),cs.prazo,function(k){cs.prazo=k;chk()});
-  s.q.forEach(function(q,i){var h=document.createElement("p");h.className="qh";h.textContent=q.l;var bx=document.createElement("div");bx.className="opts";
-   c.querySelector("#qs").appendChild(h);c.querySelector("#qs").appendChild(bx);
-   pick(bx,q.o.map(function(o){return o[0]}),cs.ans[i],function(k){cs.ans[i]=k;chk()})});
-  chk();c.querySelector("#bk").onclick=function(){cs.step=1;renderCalc()};go.onclick=function(){cs.step=3;renderCalc()};
- }else{var tot=calcTotal(cs.svc,cs.prazo,cs.ans),f=faixa(tot),rs=resumo(cs.svc,cs.prazo,cs.ans);
-  var txt="Olá Rafael! Fiz uma simulação no seu portfólio:\n"+rs.map(function(r){return"- "+r[0]+": "+r[1]}).join("\n")+(PRICING.mostrarValor?"\nEstimativa: "+money(f[0])+" a "+money(f[1]):"")+"\nPodemos conversar?";
-  c.innerHTML='<p class="stp">Passo 3 de 3</p><h3>'+(PRICING.mostrarValor?"Sua estimativa inicial":"Resumo do seu projeto")+'</h3>'+(PRICING.mostrarValor?'<div class="res">'+money(f[0])+' a '+money(f[1])+'</div><p class="cnote">Valor de referência. O orçamento final é confirmado depois de entendermos o briefing.</p>':'<p class="cnote">Envie o resumo pelo WhatsApp e eu respondo com o valor.</p>')+'<ul class="sum"></ul><div class="ctas"><a class="btn wabtn" target="_blank" rel="noopener" id="wz">Enviar resumo pelo WhatsApp</a><button type="button" class="btn alt" id="rf">Refazer simulação</button></div>';
-  var ul=c.querySelector(".sum");rs.forEach(function(r){var li=document.createElement("li");li.innerHTML="<span></span><span></span>";li.children[0].textContent=r[0];li.children[1].textContent=r[1];ul.appendChild(li)});
-  c.querySelector("#wz").href="https://wa.me/5511979912151?text="+encodeURIComponent(txt);
-  c.querySelector("#rf").onclick=function(){cs={step:1,svc:null,prazo:null,ans:{}};renderCalc()};}
-}
-renderCalc();
 // animação de entrada ao rolar
 var rv=document.querySelectorAll("h2,.lead,.box,.card,.tool,.stat,.tl");
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add("in");io.unobserve(t);setTimeout(function(){t.classList.remove("rv","in");t.style.transitionDelay=""},1100)}})},{threshold:.12});
