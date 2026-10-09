@@ -25,7 +25,7 @@ h1{font-size:clamp(2.6rem,9vw,6rem);font-weight:300;line-height:1;margin:18px 0 
 .btn{border:3px solid var(--acc);background:var(--acc);color:#fff;padding:12px 28px;border-radius:99px;text-decoration:none;font-weight:700}
 .btn.alt{background:transparent;color:var(--acc)}
 h2{font-size:clamp(2rem,5vw,3rem);font-weight:300;letter-spacing:-.03em;margin:0 0 8px}
-.lead{color:var(--mut);margin:0 0 28px;max-width:620px}
+.lead{color:var(--mut);margin:0 0 28px;max-width:780px;line-height:1.65}
 .about{display:grid;grid-template-columns:1.2fr 1fr;gap:24px}
 @media(max-width:800px){.about{grid-template-columns:1fr}}
 .box{border:3px solid var(--acc);border-radius:28px;padding:24px}
@@ -102,12 +102,15 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 .wabtn{background:#25D366;border-color:#25D366;color:#fff}
 .wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:99px;box-shadow:0 8px 20px -6px rgba(0,0,0,.35);transition:transform .2s}
 .wa:hover{transform:translateY(-3px)}
-#orcamento .calc{max-width:780px}
+#orcamento .calc{padding:32px}
+.qg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 48px}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.rg .sum{margin:0}
+@media(max-width:800px){.qg,.rg{grid-template-columns:1fr}.rg{gap:8px}#orcamento .calc{padding:22px}}
 .cbar{display:flex;gap:6px;margin-bottom:8px}.cbar i{flex:1;height:6px;border-radius:99px;background:#d5dcf0}.cbar i.on{background:var(--acc)}
 .cst{color:var(--mut);font-size:.85rem;margin:0 0 18px}
 .q{border:0;padding:0;margin:0 0 24px}.q legend{font-weight:800;padding:0;margin-bottom:10px}.q small{display:block;color:var(--mut);font-weight:400;font-size:.85rem}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{border:2px solid var(--acc);background:#fff;color:var(--acc);border-radius:99px;padding:8px 18px;font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
+.opt{border:2px solid var(--acc);background:#fff;color:var(--acc);border-radius:22px;text-align:left;padding:8px 18px;font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
 .opt:hover{background:var(--card)}.opt.sel,.opt.sel:hover{background:var(--acc);color:#fff}
 .svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .svc{text-align:left;border:3px solid var(--acc);background:#fff;color:var(--acc);border-radius:24px;padding:16px 18px;font:inherit;cursor:pointer;transition:transform .2s,background .2s}
@@ -119,7 +122,8 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 .chk{display:flex;gap:8px;align-items:center;margin-top:10px;color:var(--mut);font-size:.92rem}
 .cnav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}
 button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opacity:.4;cursor:not-allowed}
-.res{text-align:center;padding:8px 0 4px}.res small{color:var(--mut)}
+.res{text-align:center;padding:8px 0 4px}
+#sobre .lead{margin-bottom:12px}#sobre .stats{margin-top:32px}.res small{color:var(--mut)}
 .res b{display:block;font-size:clamp(2rem,7vw,3.2rem);font-weight:300;letter-spacing:-.03em;line-height:1.15;margin:6px 0}
 .res .nt{color:var(--mut);font-size:.9rem;max-width:520px;margin:10px auto 0}
 .sum{list-style:none;padding:0;margin:20px 0;border-top:1px solid #d5dcf0}.sum li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid #d5dcf0;font-size:.92rem}.sum li span:first-child{color:var(--mut)}.sum li span:last-child{text-align:right;font-weight:600}
@@ -130,7 +134,7 @@ button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opaci
 <nav><div><b>Rafael Del Valle</b><span><a href="#sobre">Sobre</a><a href="#design">Design</a><a href="#videos">Vídeos</a><a href="#experiencia">Experiência</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a></span></div></nav>
 
 <section class="hero">
-<div class="badge">Aberto a projetos freelance</div>
+<div class="badge">Aberto para projetos</div>
 <h1>Rafael Del Valle</h1>
 <p class="role">Designer Gráfico e Analista de Marketing | Branding | UI | Vídeo</p>
 <div class="ctas"><a class="btn" href="#design">Ver projetos</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a><a class="btn alt" href="Rafael-Del-Valle-Curriculo.pdf" download>Baixar currículo</a></div>
@@ -144,7 +148,9 @@ button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opaci
 
 <section id="sobre">
 <h2>Sobre</h2>
-<p class="lead">Sou designer e analista de marketing em São Paulo e transito entre a criação e a estratégia. Trabalho com comunicação visual desde 2018 e hoje sou a referência de marketing da Athon Energia, com reporte direto ao Diretor Geral. Cuido de marca, comunicação interna e externa, eventos, vídeos e conteúdo, e levo cada projeto do briefing à entrega, incluindo fornecedores, contratos e orçamento.</p>
+<p class="lead">Sou designer e analista de marketing em São Paulo e transito entre a criação e a estratégia. Trabalho com comunicação visual desde 2018.</p>
+<p class="lead">Hoje sou a referência de marketing da Athon Energia, com reporte direto ao Diretor Geral. Cuido de marca, comunicação interna e externa, eventos, vídeos e conteúdo.</p>
+<p class="lead">Levo cada projeto do briefing à entrega, incluindo fornecedores, contratos e orçamento.</p>
 <div class="stats">
 <div class="stat"><b>10K &rarr; 20K</b><span>seguidores no LinkedIn da empresa, com crescimento orgânico</span></div>
 <div class="stat"><b>360&deg;</b><span>marketing, design, eventos e vídeo sob a mesma responsabilidade</span></div>
@@ -207,7 +213,7 @@ var PROJ="projetos/"; // pasta das imagens no repositório
 function gal(f,p,n){var a=[];for(var i=1;i<=n;i++)a.push(PROJ+f+"/"+p+" "+i);return a}
 var B="https://mir-s3-cdn-cf.behance.net/projects/404/",G="https://www.behance.net/gallery/";
 var designs=[
-{t:"AIYE",c:"Branding", img:"76742e256887541.6ac9135a06668.png",u:"",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
+{t:"AIYE",c:"Branding", img:"5493c2256887541.Y3JvcCwyMTE0LDE2NTQsMTA5LDA.png",u:"256887541/AIYE-O-Mundo-em-Nos",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
 {t:"PowerRev",c:"Design",img:"4db0af224186733.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186733/PowerRev",imgs:gal("powerrev","PowerRev",17)},
 {t:"Athon Energia",c:"Design",img:"962493224186803.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186803/Athon-Energia",imgs:gal("athon","Athon",20)},
 {t:"Laços | Programa de Saúde Mental",c:"Design",img:"9daf16229244597.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"229244597/Lacos-Programa-de-Saude-Mental",imgs:gal("lacos","Laços",4)},
@@ -346,7 +352,7 @@ function draw(){
  if(st.step===1){
   h=head(1,"O que você precisa?")+'<div class="svcs">'+C.servicos.map(function(s){return '<button type="button" class="svc" data-a="svc" data-v="'+s.id+'"><b>'+E(s.nome)+'</b><span>'+E(s.desc)+'</span></button>'}).join("")+'</div>';
  }else if(st.step===2){
-  var s=svc();h=head(2,s.nome);
+  var s=svc();h=head(2,s.nome)+'<div class="qg">';
   s.q.forEach(function(q){
    h+='<fieldset class="q"><legend>'+E(q.t)+(q.dica?'<small>'+E(q.dica)+'</small>':"")+'</legend>';
    if(q.qtd)h+='<div class="qty"><button type="button" data-a="qm" aria-label="Diminuir">&minus;</button><output>'+st.qty+'</output><button type="button" data-a="qp" aria-label="Aumentar">+</button></div>';
@@ -354,18 +360,18 @@ function draw(){
    h+='</fieldset>';
    if(q.base){var b=q.o[st.ans[q.id]];if(b.per)h+='<fieldset class="q"><legend>'+E(b.sl)+'</legend><div class="qty"><button type="button" data-a="sm" aria-label="Diminuir">&minus;</button><output>'+st.sub+'</output><button type="button" data-a="sp" aria-label="Aumentar">+</button></div></fieldset>'}
   });
-  h+='<div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next">Continuar</button></div>';
+  h+='</div><div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next">Continuar</button></div>';
  }else if(st.step===3){
-  h=head(3,"Prazo")+'<fieldset class="q"><legend>Para quando você precisa?</legend><input type="date" id="cdate" min="'+iso(today())+'" value="'+st.date+'"'+(st.nodate?" disabled":"")+'><label class="chk"><input type="checkbox" id="cnod"'+(st.nodate?" checked":"")+'> Ainda não sei a data</label></fieldset>'
-   +'<fieldset class="q"><legend>Quer contar mais sobre o projeto? <small>Opcional</small></legend><textarea id="cobs" placeholder="Referências, empresa, objetivo do projeto...">'+E(st.obs)+'</textarea></fieldset>'
+  h=head(3,"Prazo")+'<div class="qg"><fieldset class="q"><legend>Para quando você precisa?</legend><input type="date" id="cdate" min="'+iso(today())+'" value="'+st.date+'"'+(st.nodate?" disabled":"")+'><label class="chk"><input type="checkbox" id="cnod"'+(st.nodate?" checked":"")+'> Ainda não sei a data</label></fieldset>'
+   +'<fieldset class="q"><legend>Quer contar mais sobre o projeto? <small>Opcional</small></legend><textarea id="cobs" placeholder="Referências, empresa, objetivo do projeto...">'+E(st.obs)+'</textarea></fieldset></div>'
    +'<div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next" id="cgo"'+(!st.nodate&&!st.date?" disabled":"")+'>Ver estimativa</button></div>';
  }else{
   var r=calc(),msg="Olá Rafael, fiz uma simulação no seu portfólio.\n\n"+rows().map(function(x){return x[0]+": "+x[1]}).join("\n")+"\n\nEstimativa: "+brl(r.lo)+" a "+brl(r.hi)+(st.obs?"\n\nSobre o projeto: "+st.obs:"")+"\n\nPodemos conversar?";
   var nt="Estimativa baseada nas respostas acima. O valor final é confirmado após o briefing.";
   if(r.d<=19)nt="<b style='display:inline;font-size:inherit;font-weight:800;letter-spacing:0;margin:0'>"+r.urg.l+":</b> a estimativa já considera um acréscimo pela urgência. "+nt;
   if(st.svc==="producao"&&st.ans.niv===1)nt+=" No nível estratégico, o valor parte desta faixa e varia conforme a complexidade.";
-  h=head(4,"Sua estimativa")+'<div class="res"><small>Investimento estimado</small><b>'+brl(r.lo)+' a '+brl(r.hi)+'</b><p class="nt">'+nt+'</p></div>'
-   +'<ul class="sum">'+rows().map(function(x){return '<li><span>'+E(x[0])+'</span><span>'+E(x[1])+'</span></li>'}).join("")+'</ul>'
+  h=head(4,"Sua estimativa")+'<div class="rg"><div class="res"><small>Investimento estimado</small><b>'+brl(r.lo)+' a '+brl(r.hi)+'</b><p class="nt">'+nt+'</p></div>'
+   +'<ul class="sum">'+rows().map(function(x){return '<li><span>'+E(x[0])+'</span><span>'+E(x[1])+'</span></li>'}).join("")+'</ul></div>'
    +'<div class="rcta"><a class="btn wabtn" target="_blank" rel="noopener" href="https://wa.me/5511979912151?text='+encodeURIComponent(msg)+'">Enviar pelo WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com?subject='+encodeURIComponent("Orçamento: "+svc().nome)+'&body='+encodeURIComponent(msg)+'">Enviar por e-mail</a><button type="button" class="btn alt" data-a="redo">Refazer</button></div>';
  }
  root.innerHTML=h;
