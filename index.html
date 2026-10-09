@@ -132,13 +132,15 @@ nav span a{margin-left:4px;padding:6px 14px;border-radius:99px;transition:backgr
 nav span a:hover{text-decoration:none;background:var(--card)}
 nav span a.on{background:var(--acc);color:#fff;font-weight:700}
 @media(max-width:600px){nav span a{padding:5px 10px;font-size:.88rem}}
+.badges{display:flex;gap:8px;flex-wrap:wrap;align-self:flex-start}
+.badge.out{background:transparent;color:var(--acc);border:2px solid var(--acc);padding:4px 14px}
 </style>
 </head>
 <body>
 <nav><div><b>Rafael Del Valle</b><span><a href="#sobre">Sobre</a><a href="#design">Design</a><a href="#videos">Vídeos</a><a href="#experiencia">Experiência</a><a href="#orcamento">Orçamento</a><a href="#contato">Contato</a></span></div></nav>
 
 <section class="hero">
-<div class="badge">Aberto para projetos</div>
+<div class="badges"><div class="badge">Aberto para projetos</div><div class="badge out">Emissão de nota fiscal</div></div>
 <h1>Rafael Del Valle</h1>
 <p class="role">Designer Gráfico e Analista de Marketing | Branding | UI | Vídeo</p>
 <div class="ctas"><a class="btn" href="#design">Ver projetos</a><a class="btn alt" href="https://www.behance.net/rafael-del-valle" target="_blank" rel="noopener">Behance &#8599;</a><a class="btn alt" href="Rafael-Del-Valle-Curriculo.pdf" download>Baixar currículo</a></div>
