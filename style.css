@@ -123,3 +123,15 @@ nav span a.on{background:var(--acc);color:#fff;font-weight:700}
 @media(max-width:600px){nav span a{padding:5px 10px;font-size:.88rem}}
 .badges{display:flex;gap:8px;flex-wrap:wrap;align-self:flex-start}
 .badge.out{background:transparent;color:var(--acc);border:2px solid var(--acc);padding:4px 14px}
+
+/* Responsivo: menu */
+nav span{display:flex;flex-wrap:wrap;gap:2px;justify-content:flex-end}
+nav span a{margin-left:0}
+@media(max-width:700px){
+nav div{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:6px;padding:10px 16px}
+nav b{text-align:center}
+nav span{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+nav span::-webkit-scrollbar{display:none}
+nav span a{flex:0 0 auto;white-space:nowrap}
+.wa{right:12px;padding:10px 16px;font-size:.9rem}
+}
