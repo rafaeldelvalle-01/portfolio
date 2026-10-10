@@ -201,8 +201,18 @@ function upd(){
  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)n=secs.length-1;
  if(n===cur)return;cur=n;
  links.forEach(function(a,i){var on=i===n;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")});
- if(n>=0){var s=links[n].parentNode;if(s.scrollWidth>s.clientWidth)s.scrollTo({left:links[n].offsetLeft-(s.clientWidth-links[n].offsetWidth)/2,behavior:"smooth"})}
 }
 window.addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
 window.addEventListener("resize",upd);upd();
+})();
+
+// menu hambúrguer (celular)
+(function(){
+var nav=document.querySelector("nav"),bt=nav.querySelector(".burger");
+function set(o){nav.classList.toggle("open",o);bt.setAttribute("aria-expanded",o);bt.setAttribute("aria-label",o?"Fechar menu":"Abrir menu")}
+bt.addEventListener("click",function(){set(!nav.classList.contains("open"))});
+[].forEach.call(nav.querySelectorAll("#menu a"),function(a){a.addEventListener("click",function(){set(false)})});
+document.addEventListener("click",function(e){if(!nav.contains(e.target))set(false)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
+window.addEventListener("resize",function(){if(window.innerWidth>700)set(false)});
 })();
