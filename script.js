@@ -200,7 +200,8 @@ function upd(){
  for(var i=0;i<secs.length;i++){if(secs[i]&&secs[i].offsetTop<=y)n=i}
  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)n=secs.length-1;
  if(n===cur)return;cur=n;
- links.forEach(function(a,i){var on=i===n;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")})
+ links.forEach(function(a,i){var on=i===n;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")});
+ if(n>=0){var s=links[n].parentNode;if(s.scrollWidth>s.clientWidth)s.scrollTo({left:links[n].offsetLeft-(s.clientWidth-links[n].offsetWidth)/2,behavior:"smooth"})}
 }
 window.addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
 window.addEventListener("resize",upd);upd();
