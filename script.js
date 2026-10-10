@@ -1,13 +1,4 @@
 // EDITE AQUI: projetos de design. Para abrir o projeto dentro do site, adicione imgs:gal("pasta","Prefixo",quantidade), que lê projetos/pasta/Prefixo 1, Prefixo 2...
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NB1VELTRJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7NB1VELTRJ');
-</script>
 var PROJ="projetos/"; // pasta das imagens no repositório
 function gal(f,p,n){var a=[];for(var i=1;i<=n;i++)a.push(PROJ+f+"/"+p+" "+i);return a}
 var B="https://mir-s3-cdn-cf.behance.net/projects/404/",G="https://www.behance.net/gallery/";
