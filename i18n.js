@@ -160,6 +160,10 @@ function applyDom(){
   if(!a.hasAttribute("data-pt-href"))a.setAttribute("data-pt-href",a.getAttribute("href"));
   a.setAttribute("href",en?a.getAttribute("data-pt-href").split("?")[0]+"?text="+encodeURIComponent(WA_EN):a.getAttribute("data-pt-href"))
  });
+  [].forEach.call(document.querySelectorAll("a[download]"),function(a){
+  if(!a.hasAttribute("data-pt-href"))a.setAttribute("data-pt-href",a.getAttribute("href"));
+  a.setAttribute("href",en?"Rafael-Del-Valle-Resume.pdf":a.getAttribute("data-pt-href"))
+ });
  if(!meta.t){meta.t=document.title;var d=document.querySelector('meta[name="description"]');meta.d=d&&d.getAttribute("content")}
  document.title=en?"Rafael Del Valle | Graphic Designer, UI, Branding and Video":meta.t;
  var md=document.querySelector('meta[name="description"]');
