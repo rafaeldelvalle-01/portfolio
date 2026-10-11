@@ -41,7 +41,7 @@ videos.forEach(function(v,i){var b=document.createElement("button");b.className=
  b.onclick=function(){openV(i)};vg.appendChild(b)});
 function openV(i){idx=(i+videos.length)%videos.length;var v=videos[idx],f=document.getElementById("frame");
  f.className="frame"+(isV(v.url)?" v":"");f.innerHTML='<iframe src="'+embed(v.url)+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
- document.getElementById("mt").textContent=v.title;document.getElementById("ms").textContent=v.cat;
+ document.getElementById("mt").textContent=tr(v.title);document.getElementById("ms").textContent=tr(v.cat);
  document.getElementById("ext").href=v.url;document.getElementById("modal").classList.add("open")}
 function shut(){document.getElementById("frame").innerHTML="";document.getElementById("modal").classList.remove("open")}
 document.getElementById("close").onclick=shut;
@@ -67,6 +67,7 @@ if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es
 // mult = multiplicador; flat = valor fixo somado uma vez ao projeto.
 var CALC={
  minimo:400,
+ usd:5.2, // cotação usada para o orçamento em dólar (R$ por US$ 1). Atualize quando quiser.
  faixa:[0.9,1.25],
  urgencia:[{ate:4,m:1.5,l:"Prazo urgente"},{ate:9,m:1.25,l:"Prazo curto"},{ate:19,m:1.1,l:"Prazo apertado"},{ate:99999,m:1,l:"Prazo confortável"}],
  desconto:[{de:10,m:0.8},{de:5,m:0.9}],
@@ -128,41 +129,47 @@ function calc(){
  var disc=1;for(var i=0;i<C.desconto.length;i++){if(qty>=C.desconto[i].de){disc=C.desconto[i].m;break}}
  var sub=(unit*mult+add)*qty*disc+flat,d=days(),u=C.urgencia.filter(function(x){return d<=x.ate})[0];
  var total=Math.max(sub*u.m,C.minimo);
- return{lo:Math.floor(total*C.faixa[0]/10)*10,hi:Math.ceil(total*C.faixa[1]/10)*10,urg:u,d:d,qty:qty}
+ return{lo:Math.floor(total*C.faixa[0]/10)*10,hi:Math.ceil(total*C.faixa[1]/10)*10,ulo:Math.floor(total/C.usd*C.faixa[0]/10)*10,uhi:Math.ceil(total/C.usd*C.faixa[1]/10)*10,urg:u,d:d,qty:qty}
 }
-function fmtDate(){if(st.nodate||!st.date)return "Ainda sem data definida";var p=st.date.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
+function fmtDate(){
+ if(st.nodate||!st.date)return tr("Ainda sem data definida");
+ var p=st.date.split("-");return I18N.en()?p[1]+"/"+p[2]+"/"+p[0]:p[2]+"/"+p[1]+"/"+p[0]
+}
+function fm(r,u){return I18N.en()?"$"+u.toLocaleString("en-US"):"R$ "+r.toLocaleString("pt-BR",{maximumFractionDigits:0})}
+function nq(s){return tr(s).replace(/\?$/,"")}
 function rows(){
- var s=svc(),r=[["Serviço",s.nome]];
- s.q.forEach(function(q){r.push([q.t.replace(/\?$/,""),q.qtd?String(st.qty):q.o[st.ans[q.id]].l]);if(q.base){var b=q.o[st.ans[q.id]];if(b.per)r.push([b.sl.replace(/\?$/,""),String(st.sub)])}});
- r.push(["Prazo",fmtDate()]);return r
+ var s=svc(),r=[[tr("Serviço"),tr(s.nome)]];
+ s.q.forEach(function(q){r.push([nq(q.t),q.qtd?String(st.qty):tr(q.o[st.ans[q.id]].l)]);if(q.base){var b=q.o[st.ans[q.id]];if(b.per)r.push([nq(b.sl),String(st.sub)])}});
+ r.push([tr("Prazo"),fmtDate()]);return r
 }
-function head(n,t){var b="";for(var i=1;i<=4;i++)b+='<i class="'+(i<=n?"on":"")+'"></i>';return '<div class="cbar">'+b+'</div><p class="cst">Etapa '+n+' de 4 · '+t+'</p>'}
+function head(n,t){var b="";for(var i=1;i<=4;i++)b+='<i class="'+(i<=n?"on":"")+'"></i>';return '<div class="cbar">'+b+'</div><p class="cst">'+(I18N.en()?"Step "+n+" of 4":"Etapa "+n+" de 4")+' · '+E(t)+'</p>'}
 function draw(){
  var h="";
  if(st.step===1){
-  h=head(1,"O que você precisa?")+'<div class="svcs">'+C.servicos.map(function(s){return '<button type="button" class="svc" data-a="svc" data-v="'+s.id+'"><b>'+E(s.nome)+'</b><span>'+E(s.desc)+'</span></button>'}).join("")+'</div>';
+  h=head(1,tr("O que você precisa?"))+'<div class="svcs">'+C.servicos.map(function(s){return '<button type="button" class="svc" data-a="svc" data-v="'+s.id+'"><b>'+E(tr(s.nome))+'</b><span>'+E(tr(s.desc))+'</span></button>'}).join("")+'</div>';
  }else if(st.step===2){
-  var s=svc();h=head(2,s.nome)+'<div class="qg">';
+  var s=svc();h=head(2,tr(s.nome))+'<div class="qg">';
   s.q.forEach(function(q){
-   h+='<fieldset class="q"><legend>'+E(q.t)+(q.dica?'<small>'+E(q.dica)+'</small>':"")+'</legend>';
-   if(q.qtd)h+='<div class="qty"><button type="button" data-a="qm" aria-label="Diminuir">&minus;</button><output>'+st.qty+'</output><button type="button" data-a="qp" aria-label="Aumentar">+</button></div>';
-   else h+='<div class="opts">'+q.o.map(function(o,i){return '<button type="button" class="opt'+(st.ans[q.id]===i?" sel":"")+'" data-a="opt" data-q="'+q.id+'" data-v="'+i+'">'+E(o.l)+'</button>'}).join("")+'</div>';
+   h+='<fieldset class="q"><legend>'+E(tr(q.t))+(q.dica?'<small>'+E(tr(q.dica))+'</small>':"")+'</legend>';
+   if(q.qtd)h+='<div class="qty"><button type="button" data-a="qm" aria-label="'+tr("Diminuir")+'">&minus;</button><output>'+st.qty+'</output><button type="button" data-a="qp" aria-label="'+tr("Aumentar")+'">+</button></div>';
+   else h+='<div class="opts">'+q.o.map(function(o,i){return '<button type="button" class="opt'+(st.ans[q.id]===i?" sel":"")+'" data-a="opt" data-q="'+q.id+'" data-v="'+i+'">'+E(tr(o.l))+'</button>'}).join("")+'</div>';
    h+='</fieldset>';
-   if(q.base){var b=q.o[st.ans[q.id]];if(b.per)h+='<fieldset class="q"><legend>'+E(b.sl)+'</legend><div class="qty"><button type="button" data-a="sm" aria-label="Diminuir">&minus;</button><output>'+st.sub+'</output><button type="button" data-a="sp" aria-label="Aumentar">+</button></div></fieldset>'}
+   if(q.base){var b=q.o[st.ans[q.id]];if(b.per)h+='<fieldset class="q"><legend>'+E(tr(b.sl))+'</legend><div class="qty"><button type="button" data-a="sm" aria-label="'+tr("Diminuir")+'">&minus;</button><output>'+st.sub+'</output><button type="button" data-a="sp" aria-label="'+tr("Aumentar")+'">+</button></div></fieldset>'}
   });
-  h+='</div><div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next">Continuar</button></div>';
+  h+='</div><div class="cnav"><button type="button" class="btn alt" data-a="back">'+tr("Voltar")+'</button><button type="button" class="btn" data-a="next">'+tr("Continuar")+'</button></div>';
  }else if(st.step===3){
-  h=head(3,"Prazo")+'<div class="qg"><fieldset class="q"><legend>Para quando você precisa?</legend><input type="date" id="cdate" min="'+iso(today())+'" value="'+st.date+'"'+(st.nodate?" disabled":"")+'><label class="chk"><input type="checkbox" id="cnod"'+(st.nodate?" checked":"")+'> Ainda não sei a data</label></fieldset>'
-   +'<fieldset class="q"><legend>Quer contar mais sobre o projeto? <small>Opcional</small></legend><textarea id="cobs" placeholder="Referências, empresa, objetivo do projeto...">'+E(st.obs)+'</textarea></fieldset></div>'
-   +'<div class="cnav"><button type="button" class="btn alt" data-a="back">Voltar</button><button type="button" class="btn" data-a="next" id="cgo"'+(!st.nodate&&!st.date?" disabled":"")+'>Ver estimativa</button></div>';
+  h=head(3,tr("Prazo"))+'<div class="qg"><fieldset class="q"><legend>'+tr("Para quando você precisa?")+'</legend><input type="date" id="cdate" min="'+iso(today())+'" value="'+st.date+'"'+(st.nodate?" disabled":"")+'><label class="chk"><input type="checkbox" id="cnod"'+(st.nodate?" checked":"")+'> '+tr("Ainda não sei a data")+'</label></fieldset>'
+   +'<fieldset class="q"><legend>'+tr("Quer contar mais sobre o projeto?")+' <small>'+tr("Opcional")+'</small></legend><textarea id="cobs" placeholder="'+E(tr("Referências, empresa, objetivo do projeto..."))+'">'+E(st.obs)+'</textarea></fieldset></div>'
+   +'<div class="cnav"><button type="button" class="btn alt" data-a="back">'+tr("Voltar")+'</button><button type="button" class="btn" data-a="next" id="cgo"'+(!st.nodate&&!st.date?" disabled":"")+'>'+tr("Ver estimativa")+'</button></div>';
  }else{
-  var r=calc(),msg="Olá Rafael, fiz uma simulação no seu portfólio.\n\n"+rows().map(function(x){return x[0]+": "+x[1]}).join("\n")+"\n\nEstimativa: "+brl(r.lo)+" a "+brl(r.hi)+(st.obs?"\n\nSobre o projeto: "+st.obs:"")+"\n\nPodemos conversar?";
-  var nt="Estimativa baseada nas respostas acima. O valor final é confirmado após o briefing.";
-  if(r.d<=19)nt="<b style='display:inline;font-size:inherit;font-weight:800;letter-spacing:0;margin:0'>"+r.urg.l+":</b> a estimativa já considera um acréscimo pela urgência. "+nt;
-  if(st.svc==="producao"&&st.ans.niv===1)nt+=" No nível estratégico, o valor parte desta faixa e varia conforme a complexidade.";
-  h=head(4,"Sua estimativa")+'<div class="rg"><div class="res"><small>Investimento estimado</small><b>'+brl(r.lo)+' a '+brl(r.hi)+'</b><p class="nt">'+nt+'</p></div>'
+  var r=calc(),en=I18N.en(),rg=fm(r.lo,r.ulo)+(en?" to ":" a ")+fm(r.hi,r.uhi);
+  var msg=tr("Olá Rafael, fiz uma simulação no seu portfólio.")+"\n\n"+rows().map(function(x){return x[0]+": "+x[1]}).join("\n")+"\n\n"+tr("Estimativa")+": "+rg+(st.obs?"\n\n"+tr("Sobre o projeto")+": "+st.obs:"")+"\n\n"+tr("Podemos conversar?");
+  var nt=tr("Estimativa baseada nas respostas acima. O valor final é confirmado após o briefing.");
+  if(r.d<=19)nt="<b style='display:inline;font-size:inherit;font-weight:800;letter-spacing:0;margin:0'>"+tr(r.urg.l)+":</b> "+tr("a estimativa já considera um acréscimo pela urgência.")+" "+nt;
+  if(st.svc==="producao"&&st.ans.niv===1)nt+=tr(" No nível estratégico, o valor parte desta faixa e varia conforme a complexidade.");
+  h=head(4,tr("Sua estimativa"))+'<div class="rg"><div class="res"><small>'+tr("Investimento estimado")+'</small><b>'+rg+'</b><p class="nt">'+nt+'</p></div>'
    +'<ul class="sum">'+rows().map(function(x){return '<li><span>'+E(x[0])+'</span><span>'+E(x[1])+'</span></li>'}).join("")+'</ul></div>'
-   +'<div class="rcta"><a class="btn wabtn" target="_blank" rel="noopener" href="https://wa.me/5511979912151?text='+encodeURIComponent(msg)+'">Enviar pelo WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com?subject='+encodeURIComponent("Orçamento: "+svc().nome)+'&body='+encodeURIComponent(msg)+'">Enviar por e-mail</a><button type="button" class="btn alt" data-a="redo">Refazer</button></div>';
+   +'<div class="rcta"><a class="btn wabtn" target="_blank" rel="noopener" href="https://wa.me/5511979912151?text='+encodeURIComponent(msg)+'">'+tr("Enviar pelo WhatsApp")+'</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com?subject='+encodeURIComponent(tr("Orçamento: ")+tr(svc().nome))+'&body='+encodeURIComponent(msg)+'">'+tr("Enviar por e-mail")+'</a><button type="button" class="btn alt" data-a="redo">'+tr("Refazer")+'</button></div>';
  }
  root.innerHTML=h;
 }
@@ -187,6 +194,7 @@ root.addEventListener("input",function(e){
  else if(t.id==="cobs"){st.obs=t.value}
  var g=document.getElementById("cgo");if(g)g.disabled=!st.nodate&&!st.date;
 });
+I18N.hooks.push(function(){draw()});
 draw();
 })();
 
@@ -209,10 +217,13 @@ window.addEventListener("resize",upd);upd();
 // menu hambúrguer (celular)
 (function(){
 var nav=document.querySelector("nav"),bt=nav.querySelector(".burger");
-function set(o){nav.classList.toggle("open",o);bt.setAttribute("aria-expanded",o);bt.setAttribute("aria-label",o?"Fechar menu":"Abrir menu")}
+function set(o){nav.classList.toggle("open",o);bt.setAttribute("aria-expanded",o);bt.setAttribute("aria-label",tr(o?"Fechar menu":"Abrir menu"))}
 bt.addEventListener("click",function(){set(!nav.classList.contains("open"))});
 [].forEach.call(nav.querySelectorAll("#menu a"),function(a){a.addEventListener("click",function(){set(false)})});
 document.addEventListener("click",function(e){if(!nav.contains(e.target))set(false)});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
 window.addEventListener("resize",function(){if(window.innerWidth>700)set(false)});
+I18N.hooks.push(function(){set(nav.classList.contains("open"))});
 })();
+
+I18N.init();
