@@ -1,43 +1,45 @@
+// "tools" lista as ferramentas usadas em cada projeto (aparecem no card).
 // EDITE AQUI: projetos de design. Para abrir o projeto dentro do site, adicione imgs:gal("pasta","Prefixo",quantidade), que lê projetos/pasta/Prefixo 1, Prefixo 2...
 var PROJ="projetos/"; // pasta das imagens no repositório
 function gal(f,p,n){var a=[];for(var i=1;i<=n;i++)a.push(PROJ+f+"/"+p+" "+i);return a}
 var B="https://mir-s3-cdn-cf.behance.net/projects/404/",G="https://www.behance.net/gallery/";
 var designs=[
-{t:"AIYE",c:"Branding", img:"5493c2256887541.Y3JvcCwyMTE0LDE2NTQsMTA5LDA.png",u:"256887541/AIYE-O-Mundo-em-Nos",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
-{t:"PowerRev",c:"Design",img:"4db0af224186733.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186733/PowerRev",imgs:gal("powerrev","PowerRev",17)},
-{t:"Athon Energia",c:"Design",img:"962493224186803.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186803/Athon-Energia",imgs:gal("athon","Athon",20)},
-{t:"Laços | Programa de Saúde Mental",c:"Design",img:"9daf16229244597.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"229244597/Lacos-Programa-de-Saude-Mental",imgs:gal("lacos","Laços",4)},
-{t:"Redesign de aplicativo - Sesc SP",c:"UI/UX",img:"73d0e6224186313.Y3JvcCwxMzExLDEwMjYsMzA1LDA.png",u:"224186313/Redesign-de-aplicativo-Sesc-SP",imgs:gal("sesc","Sesc",5)},
-{t:"Criação de site - Encanto do Oriente",c:"Web",img:"dc4684224186497.Y3JvcCw4MTgsNjQwLDcwLDA.png",u:"224186497/Criacao-de-site-Encanto-do-Oriente"},
-{t:"Agência Sampa",c:"Design",img:"0ef0a0224186631.Y3JvcCwxMDU4LDgyOCw1Miww.png",u:"224186631/Agencia-Sampa",imgs:gal("sampa","Sampa",9)},
-{t:"CazéTV",c:"Design",img:"60591a224186893.Y3JvcCw4MTYsNjM5LDE1OSww.png",u:"224186893/CazTV",imgs:gal("caze","caze",5)},
-{t:"LuHen Tattoo",c:"Design",img:"a92755224186679.Y3JvcCw4MTYsNjM5LDE1OSww.png",u:"224186679/LuHen-Tattoo",imgs:gal("luhen","LuHen",6)}
+{t:"AIYE",tools:["Photoshop","Illustrator"],c:"Branding", img:"5493c2256887541.Y3JvcCwyMTE0LDE2NTQsMTA5LDA.png",u:"256887541/AIYE-O-Mundo-em-Nos",desc:"Proposta de submarca fictícia para a Natura",imgs:gal("aiye","aiye",11)},
+{t:"PowerRev",tools:["Photoshop","Illustrator"],c:"Design",img:"4db0af224186733.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186733/PowerRev",imgs:gal("powerrev","PowerRev",17)},
+{t:"Athon Energia",tools:["Photoshop","Illustrator"],c:"Design",img:"962493224186803.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"224186803/Athon-Energia",imgs:gal("athon","Athon",20)},
+{t:"Laços | Programa de Saúde Mental",tools:["Photoshop","Illustrator"],c:"Design",img:"9daf16229244597.Y3JvcCwyODc2LDIyNTAsNTYyLDA.png",u:"229244597/Lacos-Programa-de-Saude-Mental",imgs:gal("lacos","Laços",4)},
+{t:"Redesign de aplicativo - Sesc SP",tools:["Photoshop","Illustrator","Figma"],c:"UI/UX",img:"73d0e6224186313.Y3JvcCwxMzExLDEwMjYsMzA1LDA.png",u:"224186313/Redesign-de-aplicativo-Sesc-SP",imgs:gal("sesc","Sesc",5)},
+{t:"Criação de site - Encanto do Oriente",tools:["Photoshop","Illustrator","Figma","WordPress","Elementor"],c:"Web",img:"dc4684224186497.Y3JvcCw4MTgsNjQwLDcwLDA.png",u:"224186497/Criacao-de-site-Encanto-do-Oriente"},
+{t:"Agência Sampa",tools:["Photoshop","Illustrator"],c:"Design",img:"0ef0a0224186631.Y3JvcCwxMDU4LDgyOCw1Miww.png",u:"224186631/Agencia-Sampa",imgs:gal("sampa","Sampa",9)},
+{t:"CazéTV",tools:["Photoshop","Illustrator"],c:"Design",img:"60591a224186893.Y3JvcCw4MTYsNjM5LDE1OSww.png",u:"224186893/CazTV",imgs:gal("caze","caze",5)},
+{t:"LuHen Tattoo",tools:["Photoshop","Illustrator"],c:"Design",img:"a92755224186679.Y3JvcCw4MTYsNjM5LDE1OSww.png",u:"224186679/LuHen-Tattoo",imgs:gal("luhen","LuHen",6)}
 ];
 // EDITE AQUI: vídeos (cole o link do YouTube em "url")
 var videos=[
-{title:"Capture o momento | Canon",cat:"Publicidade",desc:"Vídeo Capture o momento, para a Canon.",url:"https://youtu.be/_dUbnyqmets"},
-{title:"Saúde Mental Instagram - Post",cat:"Redes sociais",desc:"Vídeo de post para o Instagram sobre saúde mental.",url:"https://youtube.com/shorts/UIpUMSe4ycc"},
-{title:"Mulan - Apresentação de Dança",cat:"Cultura",desc:"Registro da apresentação de dança de Mulan.",url:"https://youtube.com/shorts/W7DJ8e4DoP0"},
-{title:"Intersolar Athon e PowerRev",cat:"Eventos",desc:"Cobertura da participação da Athon e da PowerRev na Intersolar.",url:"https://youtube.com/shorts/mXuHYjER0Pg"},
-{title:"Liderança Athon - Mensagem para os Estagiários",cat:"Institucional",desc:"Mensagem da liderança da Athon direcionada aos estagiários.",url:"https://youtu.be/MPo11PYSWV0"},
-{title:"Gamaro Indica - Teatro Maria Della Costa",cat:"Cultura",desc:"Indicação do espetáculo em cartaz no Teatro Maria Della Costa.",url:"https://youtube.com/shorts/Tz6lfzUiB_Q"},
-{title:"Podcast - PowerRev",cat:"Institucional",desc:"Corte do podcast da PowerRev.",url:"https://youtube.com/shorts/Etf4lmR1lWg"},
-{title:"Animação Logo PowerRev",cat:"Motion",desc:"Animação do logo da PowerRev.",url:"https://youtu.be/qTR5TRRwACI"},
-{title:"Marco Legal - Lei 14.300",cat:"Institucional",desc:"Vídeo sobre a Lei 14.300, o marco legal da geração distribuída.",url:"https://youtu.be/N3DUOeJanYE"}
+{title:"Capture o momento | Canon",tools:["Premiere Pro"],cat:"Publicidade",desc:"Vídeo Capture o momento, para a Canon.",url:"https://youtu.be/_dUbnyqmets"},
+{title:"Saúde Mental Instagram - Post",tools:["Premiere Pro","After Effects"],cat:"Redes sociais",desc:"Vídeo de post para o Instagram sobre saúde mental.",url:"https://youtube.com/shorts/UIpUMSe4ycc"},
+{title:"Mulan - Apresentação de Dança",tools:["Premiere Pro"],cat:"Cultura",desc:"Registro da apresentação de dança de Mulan.",url:"https://youtube.com/shorts/W7DJ8e4DoP0"},
+{title:"Intersolar Athon e PowerRev",tools:["Premiere Pro"],cat:"Eventos",desc:"Cobertura da participação da Athon e da PowerRev na Intersolar.",url:"https://youtube.com/shorts/mXuHYjER0Pg"},
+{title:"Liderança Athon - Mensagem para os Estagiários",tools:["Premiere Pro","After Effects"],cat:"Institucional",desc:"Mensagem da liderança da Athon direcionada aos estagiários.",url:"https://youtu.be/MPo11PYSWV0"},
+{title:"Gamaro Indica - Teatro Maria Della Costa",tools:["Premiere Pro"],cat:"Cultura",desc:"Indicação do espetáculo em cartaz no Teatro Maria Della Costa.",url:"https://youtube.com/shorts/Tz6lfzUiB_Q"},
+{title:"Podcast - PowerRev",tools:["Premiere Pro"],cat:"Institucional",desc:"Corte do podcast da PowerRev.",url:"https://youtube.com/shorts/Etf4lmR1lWg"},
+{title:"Animação Logo PowerRev",tools:["Premiere Pro","After Effects"],cat:"Motion",desc:"Animação do logo da PowerRev.",url:"https://youtu.be/qTR5TRRwACI"},
+{title:"Marco Legal - Lei 14.300",tools:["Premiere Pro","After Effects"],cat:"Institucional",desc:"Vídeo sobre a Lei 14.300, o marco legal da geração distribuída.",url:"https://youtu.be/N3DUOeJanYE"}
 ];
 function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function chips(a){return a&&a.length?'<div class="ptl">'+a.map(function(x){return "<span>"+esc(x)+"</span>"}).join("")+"</div>":""}
 function yid(u){var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:""}
 function isV(u){return /\/shorts\//.test(u)}
 function embed(u){var i=yid(u);return i?"https://www.youtube-nocookie.com/embed/"+i+"?autoplay=1&rel=0":""}
 // design cards
 var dg=document.getElementById("dgrid");
 designs.forEach(function(d,i){var a=document.createElement("a");a.className="card";a.href=G+d.u;a.target="_blank";a.rel="noopener";var has=d.imgs&&d.imgs.length;
- a.innerHTML='<div class="thumb full"><img src="'+(d.cover||B+d.img)+'" alt="Capa do projeto '+esc(d.t)+'" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="tag">'+esc(d.c)+'</span><h3>'+esc(d.t)+'</h3><p>'+(has?"Ver projeto":"Ver no Behance &#8599;")+'</p></div>';
+ a.innerHTML='<div class="thumb full"><img src="'+(d.cover||B+d.img)+'" alt="Capa do projeto '+esc(d.t)+'" loading="lazy" onerror="this.remove()"></div><div class="body"><span class="tag">'+esc(d.c)+'</span><h3>'+esc(d.t)+'</h3><p>'+(has?"Ver projeto":"Ver no Behance &#8599;")+'</p>'+chips(d.tools)+'</div>';
  if(has)a.onclick=function(e){e.preventDefault();openP(i)};dg.appendChild(a)});
 // video cards
 var vg=document.getElementById("vgrid"),idx=0;
 videos.forEach(function(v,i){var b=document.createElement("button");b.className="card";var id=yid(v.url),u="https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
- b.innerHTML='<div class="thumb"><img class="bg" src="'+u+'" alt="" onerror="this.remove()"><img class="fg'+(isV(v.url)?" v":"")+'" src="'+u+'" alt="Capa do vídeo" onerror="this.remove()"><span class="play">&#9654;</span></div><div class="body"><span class="tag">'+esc(v.cat)+'</span><h3>'+esc(v.title)+'</h3><p>'+esc(v.desc)+'</p></div>';
+ b.innerHTML='<div class="thumb"><img class="bg" src="'+u+'" alt="" onerror="this.remove()"><img class="fg'+(isV(v.url)?" v":"")+'" src="'+u+'" alt="Capa do vídeo" onerror="this.remove()"><span class="play">&#9654;</span></div><div class="body"><span class="tag">'+esc(v.cat)+'</span><h3>'+esc(v.title)+'</h3><p>'+esc(v.desc)+'</p>'+chips(v.tools)+'</div>';
  b.onclick=function(){openV(i)};vg.appendChild(b)});
 function openV(i){idx=(i+videos.length)%videos.length;var v=videos[idx],f=document.getElementById("frame");
  f.className="frame"+(isV(v.url)?" v":"");f.innerHTML='<iframe src="'+embed(v.url)+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
@@ -212,6 +214,16 @@ function upd(){
 }
 window.addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
 window.addEventListener("resize",upd);upd();
+})();
+
+// modo escuro
+(function(){
+var KEY="rdv-theme",root=document.documentElement,bt=document.querySelector(".theme"),mq=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)");
+function label(){var d=root.getAttribute("data-theme")==="dark",t=tr(d?"Ativar modo claro":"Ativar modo escuro");bt.setAttribute("aria-label",t);bt.title=t}
+function apply(t,save){root.setAttribute("data-theme",t);if(save){try{localStorage.setItem(KEY,t)}catch(e){}}label()}
+bt.addEventListener("click",function(){apply(root.getAttribute("data-theme")==="dark"?"light":"dark",true)});
+if(mq&&mq.addEventListener)mq.addEventListener("change",function(e){var s=null;try{s=localStorage.getItem(KEY)}catch(x){}if(!s)apply(e.matches?"dark":"light",false)});
+I18N.hooks.push(label);label();
 })();
 
 // menu hambúrguer (celular)

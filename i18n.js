@@ -78,7 +78,7 @@ var EN={
 "Aberto a projetos freelance e parcerias.":"Open to freelance projects and partnerships.",
 "© Rafael Del Valle · São Paulo, SP":"© Rafael Del Valle · São Paulo, Brazil",
 // atributos de acessibilidade
-"Abrir menu":"Open menu","Fechar menu":"Close menu","Falar no WhatsApp":"Chat on WhatsApp","Fechar":"Close",
+"Abrir menu":"Open menu","Fechar menu":"Close menu","Ativar modo escuro":"Switch to dark mode","Ativar modo claro":"Switch to light mode","Falar no WhatsApp":"Chat on WhatsApp","Fechar":"Close",
 // ---- simulador: interface ----
 "Voltar":"Back","Continuar":"Continue","Ver estimativa":"See estimate","Sua estimativa":"Your estimate","Investimento estimado":"Estimated investment",
 "Prazo":"Deadline","Serviço":"Service","Opcional":"Optional","Refazer":"Start over","Diminuir":"Decrease","Aumentar":"Increase",
@@ -152,7 +152,7 @@ function applyDom(){
  });
  [].forEach.call(document.querySelectorAll("[aria-label]"),function(e){
   if(!e.hasAttribute("data-pt-aria"))e.setAttribute("data-pt-aria",e.getAttribute("aria-label"));
-  if(e.classList.contains("lang")||e.classList.contains("burger"))return;
+  if(e.classList.contains("lang")||e.classList.contains("burger")||e.classList.contains("theme"))return;
   var pt=e.getAttribute("data-pt-aria");e.setAttribute("aria-label",en&&EN.hasOwnProperty(pt)?EN[pt]:pt)
  });
  [].forEach.call(document.querySelectorAll('a[href*="wa.me/"]'),function(a){
