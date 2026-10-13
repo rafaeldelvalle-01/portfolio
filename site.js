@@ -45,3 +45,30 @@ I18N.hooks.push(function(){set(nav.classList.contains("open"))});
 })();
 
 I18N.init();
+
+// seletor Carreira | Freela com indicador deslizante
+(function(){
+var m=document.querySelector(".mode");if(!m)return;
+var links=[].slice.call(m.querySelectorAll("a")),ind=document.createElement("i");
+ind.className="ind";ind.setAttribute("aria-hidden","true");m.insertBefore(ind,m.firstChild);m.classList.add("js");
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function cur(){return m.querySelector("a.on")||links[0]}
+function place(a){ind.style.width=a.offsetWidth+"px";ind.style.transform="translateX("+(a.offsetLeft-3)+"px)"}
+function setOn(a){links.forEach(function(l){var on=l===a;l.classList.toggle("on",on);if(on)l.setAttribute("aria-current","page");else l.removeAttribute("aria-current")})}
+// ao chegar pela troca de versão, a página entra com um fade suave (o indicador já está no lugar)
+var from=null;try{from=sessionStorage.getItem("rdv-mode-from");sessionStorage.removeItem("rdv-mode-from")}catch(e){}
+m.classList.add("nt");place(cur());m.offsetWidth;m.classList.remove("nt");
+if(from&&!reduce){document.body.classList.add("leaving");requestAnimationFrame(function(){requestAnimationFrame(function(){document.body.classList.remove("leaving")})})}
+links.forEach(function(a){a.addEventListener("click",function(e){
+ if(a.classList.contains("on")||e.metaKey||e.ctrlKey||e.shiftKey||e.button===1){if(a.classList.contains("on"))e.preventDefault();return}
+ var href=a.getAttribute("href"),old=cur().getAttribute("href");
+ try{sessionStorage.setItem("rdv-mode-from",old)}catch(x){}
+ if(reduce)return;
+ e.preventDefault();setOn(a);place(a);
+ setTimeout(function(){document.body.classList.add("leaving")},220);
+ setTimeout(function(){location.href=href},470);
+})});
+window.addEventListener("resize",function(){m.classList.add("nt");place(cur());m.offsetWidth;m.classList.remove("nt")});
+window.addEventListener("pageshow",function(e){if(e.persisted){document.body.classList.remove("leaving");var h=location.pathname.indexOf("/freela")===0?"/freela/":"/";setOn(links.filter(function(l){return l.getAttribute("href")===h})[0]||cur());m.classList.add("nt");place(cur());m.offsetWidth;m.classList.remove("nt")}});
+I18N.hooks.push(function(){m.classList.add("nt");place(cur());m.offsetWidth;m.classList.remove("nt")});
+})();

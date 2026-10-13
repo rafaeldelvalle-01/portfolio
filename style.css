@@ -191,3 +191,14 @@ footer a{color:var(--acc);font-weight:700;text-decoration:none}footer a:hover{te
 .case .tag{align-self:flex-start}
 @media(min-width:960px){.cases .case:last-child:nth-child(odd){grid-column:1/-1}}
 @media(min-width:760px){.skills{grid-template-columns:repeat(2,1fr)}}
+
+/* Seletor Carreira | Freela: indicador deslizante */
+.mode{position:relative}
+.mode a{position:relative;z-index:1;transition:color .35s ease,background .2s}
+.mode .ind{position:absolute;top:3px;bottom:3px;left:0;width:0;border-radius:99px;background:var(--acc);z-index:0;pointer-events:none;transition:transform .45s cubic-bezier(.65,0,.35,1),width .45s cubic-bezier(.65,0,.35,1)}
+.mode.js a.on,.mode.js a.on:hover{background:transparent}
+.mode.js a:not(.on):hover{background:transparent;opacity:.75}
+.mode.nt .ind,.mode.nt a{transition:none}
+body{transition:opacity .25s ease}
+body.leaving{opacity:0}
+@media(prefers-reduced-motion:reduce){.mode .ind,.mode a,body{transition:none}}
