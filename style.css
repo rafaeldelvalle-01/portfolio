@@ -121,7 +121,7 @@ button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opaci
 nav span a{margin-left:4px;padding:6px 14px;border-radius:99px;transition:background .2s,color .2s}
 nav span a:hover{text-decoration:none;background:var(--card)}
 nav span a.on{background:var(--acc);color:var(--on-acc);font-weight:700}
-@media(max-width:600px){nav span a{padding:5px 10px;font-size:.88rem}}
+
 .badges{display:flex;gap:8px 28px;flex-wrap:wrap;align-self:flex-start}
 
 /* Menu */
@@ -132,7 +132,7 @@ nav b{margin-right:auto}
 .lang i{font-style:normal;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:99px;color:var(--acc);transition:background .2s,color .2s}
 .lang i.on{background:var(--acc);color:var(--on-acc)}
 .burger{display:none}
-@media(max-width:700px){
+@media(max-width:1100px){
 nav div{flex-wrap:nowrap;gap:10px}
 .lang{order:0;height:44px;padding:3px 4px}
 .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:44px;border:2px solid var(--acc);border-radius:14px;background:var(--surf);cursor:pointer;padding:0}
@@ -202,3 +202,6 @@ footer a{color:var(--acc);font-weight:700;text-decoration:none}footer a:hover{te
 body{transition:opacity .25s ease}
 body.leaving{opacity:0}
 @media(prefers-reduced-motion:reduce){.mode .ind,.mode a,body{transition:none}}
+/* ordem do menu em telas médias e pequenas */
+@media(max-width:1100px){.home{order:0}.mode{order:1}.lang{order:2}.theme{order:3;width:44px;height:44px}.burger{order:4}}
+@media(max-width:700px){.mode{order:5}}
