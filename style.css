@@ -160,3 +160,34 @@ html:not([lang="en"]) .only-en{display:none}
 :root[data-theme="dark"] .theme .sun{display:block}
 :root[data-theme="dark"] .theme .moon{display:none}
 @media(max-width:700px){.theme{order:0;width:44px;height:44px}}
+
+/* Seletor Carreira | Freela */
+.home{text-decoration:none;margin-right:auto}.home b{margin:0}
+.mode{order:2;margin:0;display:inline-flex;gap:2px;border:2px solid var(--acc);border-radius:99px;background:var(--surf);padding:3px}
+.mode a{text-decoration:none;font-size:.82rem;font-weight:700;padding:5px 14px;border-radius:99px;color:var(--acc);transition:background .2s,color .2s}
+.mode a:hover{background:var(--card)}
+.mode a.on,.mode a.on:hover{background:var(--acc);color:var(--on-acc)}
+@media(max-width:700px){nav div{flex-wrap:wrap}.mode{order:5;flex-basis:100%;justify-content:center}.mode a{flex:1;text-align:center;padding:7px 14px}}
+
+/* Página Carreira */
+.career .hero{max-width:1100px;margin:0 auto;padding:40px 24px 0;min-height:52vh}
+.pitch{max-width:720px;font-size:1.08rem;line-height:1.65;margin:0 0 28px}
+#resultados{padding-top:24px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:20px}
+.case{border:3px solid var(--acc);border-radius:28px;padding:26px 26px 22px;display:flex;flex-direction:column}
+.case h3{font-size:1.4rem;font-weight:800;margin:10px 0 14px;line-height:1.25}
+.res-k{background:var(--card);border-radius:20px;padding:16px 18px;margin-bottom:16px}
+.res-k b{display:block;font-size:2.2rem;font-weight:300;letter-spacing:-.03em;line-height:1.1}
+.res-k span{display:block;color:var(--mut);font-size:.9rem;margin-top:4px}
+.ctx{margin:0 0 14px;line-height:1.6}
+.case h4{margin:0 0 6px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.case ul{margin:0 0 6px;padding-left:18px}.case li{margin:6px 0;font-size:.95rem}
+.case .ptl{margin-top:auto;padding-top:12px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:20px}
+.strip .thumb{aspect-ratio:16/10}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--acc);font-weight:700;text-decoration:none}footer a:hover{text-decoration:underline}
+.case .tag{align-self:flex-start}
+@media(min-width:960px){.cases .case:last-child:nth-child(odd){grid-column:1/-1}}
+@media(min-width:760px){.skills{grid-template-columns:repeat(2,1fr)}}
