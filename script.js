@@ -194,3 +194,10 @@ root.addEventListener("input",function(e){
 I18N.hooks.push(function(){draw()});
 draw();
 })();
+
+// abre o simulador quando o link vem com #orcamento
+(function(){
+var q=document.querySelector("#orcamento details");if(!q)return;
+function chk(){if(location.hash==="#orcamento"){q.open=true;document.getElementById("orcamento").scrollIntoView()}}
+window.addEventListener("hashchange",chk);chk();
+})();

@@ -2,7 +2,8 @@
 // O site é escrito em português. Para cada texto em português, EN["texto em português"] = "English text".
 // Para trocar uma tradução, edite o lado direito. Textos sem tradução aparecem em português.
 var EN={
-// páginas Carreira e Freela
+// páginas Carreira e Design
+"Precisa de um orçamento?":"Need a quote?","Simule uma estimativa em poucos passos":"Get an estimate in a few steps",
 "Carreira":"Career",
 "Freela":"Freelance",
 "Competências":"Skills",
@@ -98,8 +99,8 @@ var EN={
 "Redesign de aplicativo (UI)":"App redesign (UI)",
 "Ver portfólio completo de design e vídeo":"See the full design and video portfolio",
 "Universidade São Judas Tadeu, concluída em 2023.":"Universidade São Judas Tadeu, completed in 2023.",
-"Para falar sobre marketing, marca e comunicação, me chame por e-mail ou LinkedIn.":"To talk about marketing, brand and communications, reach me by email or LinkedIn.",
-"Procura freela de design ou vídeo? Veja a versão Freela →":"Looking for freelance design or video? See the Freelance version →",
+"Para falar sobre marketing, marca e comunicação, me chame no WhatsApp, por e-mail ou no LinkedIn.":"To talk about marketing, brand and communications, reach me on WhatsApp, by email or on LinkedIn.",
+"Veja meu portfólio de design gráfico e vídeo →":"See my graphic design and video portfolio →",
 "Emissão de nota fiscal":"Invoices issued",
 "Versão do site":"Site version",
 // menu e topo
@@ -175,7 +176,7 @@ var EN={
 "Simule seu orçamento":"Get a quote estimate",
 "Responda algumas perguntas e receba uma estimativa na hora. O valor final é confirmado após conversarmos sobre o briefing.":"Answer a few questions and get an estimate right away. The final amount is confirmed after we talk about the briefing.",
 "Vamos conversar?":"Let's talk?",
-"Aberto a projetos freelance e parcerias.":"Open to freelance projects and partnerships.",
+"Para projetos de design, vídeo e parcerias, me chame no WhatsApp ou por e-mail.":"For design and video projects or partnerships, reach me on WhatsApp or by email.",
 "© Rafael Del Valle · São Paulo, SP":"© Rafael Del Valle · São Paulo, Brazil",
 // atributos de acessibilidade
 "Abrir menu":"Open menu","Fechar menu":"Close menu","Ativar modo escuro":"Switch to dark mode","Ativar modo claro":"Switch to light mode","Falar no WhatsApp":"Chat on WhatsApp","Fechar":"Close",

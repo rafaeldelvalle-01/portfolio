@@ -121,7 +121,7 @@ button.btn{font:inherit;font-weight:700;cursor:pointer}button.btn:disabled{opaci
 nav span a{margin-left:4px;padding:6px 14px;border-radius:99px;transition:background .2s,color .2s}
 nav span a:hover{text-decoration:none;background:var(--card)}
 nav span a.on{background:var(--acc);color:var(--on-acc);font-weight:700}
-@media(max-width:600px){nav span a{padding:5px 10px;font-size:.88rem}}
+
 .badges{display:flex;gap:8px 28px;flex-wrap:wrap;align-self:flex-start}
 
 /* Menu */
@@ -132,7 +132,7 @@ nav b{margin-right:auto}
 .lang i{font-style:normal;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:99px;color:var(--acc);transition:background .2s,color .2s}
 .lang i.on{background:var(--acc);color:var(--on-acc)}
 .burger{display:none}
-@media(max-width:700px){
+@media(max-width:1100px){
 nav div{flex-wrap:nowrap;gap:10px}
 .lang{order:0;height:44px;padding:3px 4px}
 .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:44px;border:2px solid var(--acc);border-radius:14px;background:var(--surf);cursor:pointer;padding:0}
@@ -191,3 +191,22 @@ footer a{color:var(--acc);font-weight:700;text-decoration:none}footer a:hover{te
 .case .tag{align-self:flex-start}
 @media(min-width:960px){.cases .case:last-child:nth-child(odd){grid-column:1/-1}}
 @media(min-width:760px){.skills{grid-template-columns:repeat(2,1fr)}}
+
+/* ordem do menu em telas médias e pequenas */
+@media(max-width:1100px){.home{order:0}.mode{order:1}.lang{order:2}.theme{order:3;width:44px;height:44px}.burger{order:4}}
+@media(max-width:700px){.mode{order:5}}
+
+/* Simulador discreto (página Design) */
+#orcamento{padding-top:28px}
+.qbox{border:2px solid var(--line);border-radius:24px;background:var(--surf)}
+.qbox summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border-radius:22px}
+.qbox summary::-webkit-details-marker{display:none}
+.qbox summary:hover{background:var(--card)}
+.qbox summary b{display:block;font-size:1rem}
+.qbox summary small{display:block;color:var(--mut);font-size:.88rem;margin-top:2px}
+.qbox summary i{flex:none;width:12px;height:12px;border-right:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:rotate(45deg) translate(-3px,-3px);transition:transform .25s}
+.qbox[open] summary i{transform:rotate(-135deg) translate(-3px,-3px)}
+.qbox[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.qnote{color:var(--mut);margin:0;padding:0 22px 6px;font-size:.92rem;max-width:760px}
+.qbox .calc{padding:16px 22px 24px}
+@media(prefers-reduced-motion:reduce){.qbox summary i{transition:none}}

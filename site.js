@@ -1,4 +1,4 @@
-// Código compartilhado entre a página Carreira (/) e a página Freela (/freela/)
+// Código compartilhado entre a página Carreira (/) e a página Design (/design/)
 // animação de entrada ao rolar
 (function(){
 var rv=document.querySelectorAll("h2,.lead,.box,.card,.tool,.stat,.tl,.case");
@@ -40,7 +40,7 @@ bt.addEventListener("click",function(){set(!nav.classList.contains("open"))});
 [].forEach.call(nav.querySelectorAll("#menu a"),function(a){a.addEventListener("click",function(){set(false)})});
 document.addEventListener("click",function(e){if(!nav.contains(e.target))set(false)});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
-window.addEventListener("resize",function(){if(window.innerWidth>700)set(false)});
+window.addEventListener("resize",function(){if(window.innerWidth>1100)set(false)});
 I18N.hooks.push(function(){set(nav.classList.contains("open"))});
 })();
 
