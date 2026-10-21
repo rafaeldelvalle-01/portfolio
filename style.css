@@ -89,8 +89,8 @@ footer{max-width:1100px;margin:56px auto 0;padding:24px;color:var(--mut);font-si
 .hl{margin:0 0 12px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
 .softrow{margin-top:28px}.softrow h4{margin:0 0 10px;font-size:1rem}
 #ferramentas{padding-top:32px}
-.wabtn{background:#25D366;border-color:#25D366;color:#fff}
-.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:99px;box-shadow:0 8px 20px -6px rgba(0,0,0,.35);transition:transform .2s}
+.wabtn{background:#15803D;border-color:#15803D;color:#fff}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:6;background:#15803D;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:99px;box-shadow:0 8px 20px -6px rgba(0,0,0,.35);transition:transform .2s}
 .wa:hover{transform:translateY(-3px)}
 #orcamento .calc{padding:32px}
 .qg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 48px}
