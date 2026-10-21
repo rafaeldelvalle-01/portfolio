@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-title-en="Case: from landing page to tracked lead | Rafael Del Valle" data-desc-en="Interactive case study: a lead-capture landing page built with AI, UTM tracking, webhook automation with n8n and measurement with GTM and GA4.">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WNPR3XHG');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<script>(function(){var t=null;try{t=localStorage.getItem("rdv-theme")}catch(e){}if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})()</script>
+<title>Case: da landing page ao lead rastreado | Rafael Del Valle</title>
+<meta name="description" content="Case interativo: landing page de captação criada com IA, rastreamento por UTM, automação com webhook e n8n e medição com GTM e GA4.">
+<meta name="author" content="Rafael Del Valle">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://rafaeldelvalle.com.br/cases/captacao-automacao/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Rafael Del Valle">
+<meta property="og:url" content="https://rafaeldelvalle.com.br/cases/captacao-automacao/">
+<meta property="og:title" content="Da landing page ao lead rastreado | Rafael Del Valle">
+<meta property="og:description" content="Landing page com IA, UTMs, webhook, n8n, GTM e GA4 num case interativo.">
+<meta property="og:image" content="https://rafaeldelvalle.com.br/og-carreira.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b3aa0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="preconnect" href="https://p.typekit.net" crossorigin>
+<link rel="preload" href="https://use.typekit.net/jdv5ltp.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://use.typekit.net/jdv5ltp.css"></noscript>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/cases/captacao-automacao/case.css">
+</head>
+<body class="career cx-page">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNPR3XHG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav><div><a class="home" href="/"><b>Rafael Del Valle</b></a><button type="button" class="lang" aria-label="Change language to English"><i class="on">PT</i><i>EN</i></button><button type="button" class="theme" aria-label="Ativar modo escuro" title="Ativar modo escuro"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><button type="button" class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button><span id="menu"><a href="#laboratorio">Laboratório</a><a href="#ferramentas">Ferramentas</a><a href="#aprendizados">Aprendizados</a><a href="/#cases">Todos os cases</a></span></div></nav>
+
+<main class="cx">
+<header class="cx-hero">
+<a class="cx-back" href="/#cases">&larr; Voltar aos cases</a>
+<p class="hl">Case · Web, tracking e automação</p>
+<h1>Da landing page ao lead rastreado</h1>
+<p class="cx-sub">Montei uma página de captação para uma pós-graduação com IA, liguei o formulário a uma automação e garanti que cada inscrição chegasse ao destino dizendo de onde veio. Sem desenvolvedor, do clique à planilha.</p>
+<div class="cx-kpis">
+<div><b>1 página</b><span>criada com IA e revisada à mão: copy, hierarquia, contraste e formulário</span></div>
+<div><b>5 UTMs</b><span>capturadas em campos ocultos e entregues junto com cada inscrição</span></div>
+<div><b>0 leads perdidos</b><span>a inscrição é salva antes da automação, mesmo se ela falhar</span></div>
+</div>
+<p class="cx-note">Projeto de estudo com uma marca fictícia, a pós.digital. Endereços, IDs e dados reais foram omitidos. A simulação abaixo não envia nada.</p>
+</header>
+
+<section class="cx-lab" id="laboratorio" aria-label="Laboratório interativo">
+<div class="cx-left">
+<div class="cx-origin" role="group" aria-label="De onde a pessoa veio">
+<span class="cx-origin-l">Origem da visita:</span>
+<button type="button" class="on" data-origin="instagram">Instagram</button>
+<button type="button" data-origin="google">Google Ads</button>
+<button type="button" data-origin="email">E-mail</button>
+<button type="button" data-origin="direto">Direto</button>
+</div>
+
+<div class="cx-browser">
+<div class="cx-bar"><span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span><div class="cx-url" aria-label="Endereço da página"><span class="cx-lock" aria-hidden="true"></span><span class="cx-host">pos.digital</span><span id="cx-query"></span></div></div>
+<div class="cx-site" id="cx-site" tabindex="0" aria-label="Página de captação simulada">
+
+<div class="lp-nav"><span class="lp-logo">pós.digital<em>*</em><small>EDUCAÇÃO</small></span><span class="lp-links"><a href="#lp-grade" data-lp="lp-grade">Grade</a><a href="#lp-faq" data-lp="lp-faq">FAQ</a><a href="#lp-form" data-lp="lp-form" class="lp-cta-s">Inscreva-se</a></span></div>
+
+<div class="lp-hero" id="lp-hero">
+<div class="lp-art" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<p class="lp-kick">Pós-graduação EAD</p>
+<div class="lp-h" role="heading" aria-level="3">Especialize-se em <span>Marketing Digital</span> de onde você estiver</div>
+<p class="lp-p">Especialização 100% online em performance, conteúdo, dados e estratégia, com professores que vivem o mercado.</p>
+<a href="#lp-form" data-lp="lp-form" class="lp-btn" id="lp-cta">Quero me inscrever &rarr;</a>
+</div>
+
+<div class="lp-facts"><div><b>360h</b><span>de carga horária</span></div><div><b>12 meses</b><span>de duração</span></div><div><b>100%</b><span>online</span></div><div><b>MEC</b><span>certificado reconhecido</span></div></div>
+
+<div class="lp-sec" id="lp-grade">
+<p class="lp-kick">Grade curricular</p>
+<h3>O que você vai aprender</h3>
+<ol class="lp-grade">
+<li><b>Estratégia digital</b><span>Posicionamento, funil e planejamento</span></li>
+<li><b>Performance</b><span>Mídia paga, métricas e otimização</span></li>
+<li><b>Conteúdo e SEO</b><span>Busca orgânica e busca com IA</span></li>
+<li><b>Dados e automação</b><span>Tracking, CRM e jornadas</span></li>
+</ol>
+</div>
+
+<div class="lp-sec" id="lp-faq">
+<p class="lp-kick">Perguntas frequentes</p>
+<h3>Antes de se inscrever</h3>
+<details><summary>O certificado é reconhecido pelo MEC?</summary><p>Sim. A instituição é credenciada e o certificado tem validade nacional.</p></details>
+<details><summary>Quanto tempo dura a pós?</summary><p>12 meses, com 360 horas de carga horária.</p></details>
+<details><summary>Preciso ir a algum polo?</summary><p>Não. Todo o curso é online, no seu ritmo.</p></details>
+</div>
+
+<div class="lp-sec lp-formwrap" id="lp-form">
+<p class="lp-kick">Inscrição</p>
+<h3>Garanta sua vaga</h3>
+<form id="lp-f" novalidate>
+<label>Nome completo<input name="nome" autocomplete="off" value="Ana Souza"></label>
+<label>E-mail<input name="email" type="email" autocomplete="off" value="ana.souza@exemplo.com"></label>
+<label>Telefone / WhatsApp<input name="telefone" autocomplete="off" value="(11) 90000-0000"></label>
+<div class="lp-hidden" id="lp-hidden" hidden>
+<p>Campos ocultos, preenchidos pela URL:</p>
+<div id="lp-hidden-list"></div>
+</div>
+<button type="button" class="lp-peek" id="lp-peek" aria-expanded="false">Mostrar campos ocultos</button>
+<button type="submit" class="lp-btn lp-send">Enviar inscrição (simulação)</button>
+</form>
+</div>
+
+<div class="lp-thanks" id="lp-thanks" hidden>
+<div class="lp-check" aria-hidden="true"></div>
+<h3>Inscrição recebida!</h3>
+<p>Em breve nossa equipe entra em contato pelo WhatsApp.</p>
+<button type="button" class="lp-btn" id="lp-again">Simular de novo</button>
+</div>
+
+<div class="lp-foot">pós.digital · marca fictícia criada para este estudo</div>
+</div>
+</div>
+
+<div class="cx-flow" aria-label="Caminho da inscrição">
+<ol class="cx-nodes">
+<li data-node="0"><i>1</i><span>Página</span></li>
+<li data-node="1"><i>2</i><span>Webhook</span></li>
+<li data-node="2"><i>3</i><span>n8n</span></li>
+<li data-node="3"><i>4</i><span>Planilha</span></li>
+</ol>
+<p class="cx-status" id="cx-status" role="status" aria-live="polite">Preencha o formulário ao lado e envie para ver a inscrição percorrer a automação.</p>
+</div>
+</div>
+
+<div class="cx-right">
+
+<article class="cx-step" id="s1">
+<span class="cx-n">01</span>
+<h2>O desafio</h2>
+<p>Campanhas de captação vivem de páginas que precisam ir ao ar rápido e de dados confiáveis sobre a origem de cada inscrição. Na prática, duas coisas costumam travar: a fila do time de desenvolvimento e o lead que chega sem dizer de onde veio.</p>
+<div class="cx-vs">
+<div><small>Antes</small><ul><li>Página depende de desenvolvedor</li><li>Inscrição chega sem origem</li><li>Se a integração cai, o lead some</li></ul></div>
+<div class="on"><small>Depois</small><ul><li>Página no ar com IA e revisão humana</li><li>UTM viaja com o lead até o destino</li><li>Lead salvo antes da automação</li></ul></div>
+</div>
+</article>
+
+<article class="cx-step" id="s2">
+<span class="cx-n">02</span>
+<h2>A página, com IA</h2>
+<p>A landing page foi gerada no Lovable a partir de um briefing escrito como prompt. A IA acelera o rascunho; a revisão é o trabalho.</p>
+<div class="cx-prompt"><small>Briefing enviado</small><p>Landing page para uma pós-graduação EAD em Marketing Digital, com hero, carga horária, grade curricular, FAQ, formulário com nome, e-mail, telefone e campos ocultos de UTM, e página de obrigado.</p></div>
+<h3>O que revisei à mão</h3>
+<ul class="cx-checks">
+<li>Respostas principais no topo: duração, carga horária, modalidade e reconhecimento</li>
+<li>Um único objetivo por tela, com o CTA sempre à vista</li>
+<li>Formulário curto, só com o que o time comercial precisa</li>
+<li>Contraste, textos dos botões e comportamento no celular</li>
+</ul>
+<button type="button" class="cx-go" data-go="lp-hero">Ver o topo da página &larr;</button>
+</article>
+
+<article class="cx-step" id="s3">
+<span class="cx-n">03</span>
+<h2>UTM: do link ao campo oculto</h2>
+<p>Cada link de campanha carrega parâmetros UTM. A página lê esses parâmetros e preenche campos ocultos do formulário, para que a origem viaje junto com a inscrição.</p>
+<div class="cx-utm" id="cx-utm" aria-live="polite"></div>
+<h3>Padrão que adotei</h3>
+<ul class="cx-checks">
+<li>Tudo minúsculo, sem acento e sem espaço</li>
+<li>Um nome de meio por tipo de canal: social, cpc, email</li>
+<li>Uma campanha por iniciativa, para comparar canais lado a lado</li>
+<li>O ponto do clique vai em utm_content</li>
+</ul>
+<button type="button" class="cx-go" data-go="lp-form" data-peek="1">Ver os campos ocultos &larr;</button>
+</article>
+
+<article class="cx-step" id="s4">
+<span class="cx-n">04</span>
+<h2>Webhook e n8n</h2>
+<p>Ao enviar, a página faz um POST para um webhook do n8n. O workflow organiza os campos e grava uma linha na planilha que simula o CRM.</p>
+<div class="cx-wf" aria-label="Workflow no n8n">
+<div class="cx-wn"><i class="w1" aria-hidden="true"></i><b>Webhook</b><small>recebe o POST</small></div>
+<span class="cx-wl" aria-hidden="true"></span>
+<div class="cx-wn"><i class="w2" aria-hidden="true"></i><b>Montar campos</b><small>organiza os dados</small></div>
+<span class="cx-wl" aria-hidden="true"></span>
+<div class="cx-wn"><i class="w3" aria-hidden="true"></i><b>Google Sheets</b><small>adiciona a linha</small></div>
+</div>
+<pre class="cx-json" id="cx-json" aria-label="Dados enviados"></pre>
+<h3>Detalhes que fazem diferença</h3>
+<ul class="cx-checks">
+<li>URL de teste só recebe com o editor ouvindo; a de produção exige o workflow ativo</li>
+<li>CORS liberado para o domínio da página, senão o navegador bloqueia o envio</li>
+<li>Cada execução fica registrada, com a entrada e a saída de cada etapa</li>
+</ul>
+</article>
+
+<article class="cx-step" id="s5">
+<span class="cx-n">05</span>
+<h2>O lead no destino</h2>
+<p>A inscrição chega com nome, contato e a origem completa. É isso que permite medir matrícula por campanha, e não só clique.</p>
+<div class="cx-sheet-w"><table class="cx-sheet" aria-label="Planilha de inscrições (dados fictícios)">
+<thead><tr><th>Nome</th><th>utm_source</th><th>utm_medium</th><th>utm_campaign</th></tr></thead>
+<tbody id="cx-rows">
+<tr><td>Bruno Lima</td><td>google</td><td>cpc</td><td>pos_marketing_2027</td></tr>
+<tr><td>Carla Dias</td><td>newsletter</td><td>email</td><td>pos_marketing_2027</td></tr>
+<tr><td>Diego Reis</td><td class="cx-empty">(vazio)</td><td class="cx-empty">(vazio)</td><td class="cx-empty">(vazio)</td></tr>
+</tbody></table></div>
+<p class="cx-small">Linha sem UTM = acesso direto. A inscrição entra do mesmo jeito, só que sem origem: é o que aparece como "(direct)" no GA4.</p>
+</article>
+
+<article class="cx-step" id="s6">
+<span class="cx-n">06</span>
+<h2>Medição com GTM e GA4</h2>
+<p>O Google Tag Manager concentra as tags sem mexer no código da página a cada mudança. Cada tag responde a três perguntas:</p>
+<div class="cx-tav">
+<div><b>Tag</b><span>o que dispara</span><small>evento no GA4</small></div>
+<div><b>Acionador</b><span>quando dispara</span><small>clique no CTA, envio do formulário</small></div>
+<div><b>Variável</b><span>com qual dado</span><small>URL do clique, página, origem</small></div>
+</div>
+<p>Tudo é validado no modo Preview antes de publicar: evento por evento, quais tags dispararam e com quais valores.</p>
+<button type="button" class="cx-go" data-go="lp-hero" data-flash="lp-cta">Ver o CTA medido &larr;</button>
+</article>
+
+<article class="cx-step" id="s7">
+<span class="cx-n">07</span>
+<h2>Feito para não perder lead</h2>
+<p>A inscrição é gravada primeiro no banco da própria página e só depois enviada à automação. Se o n8n falhar, o lead continua salvo e a pessoa vê a página de obrigado normalmente.</p>
+<h3>Próximos passos numa operação real</h3>
+<ul class="cx-checks">
+<li>Guardar a UTM em cookie para ela sobreviver à navegação</li>
+<li>Alerta automático quando uma execução falhar</li>
+<li>Enviar para o CRM em vez de planilha</li>
+<li>Evento de conversão na página de obrigado</li>
+</ul>
+</article>
+
+</div>
+</section>
+
+<section id="ferramentas" class="cx-tools-s">
+<h2>Ferramentas</h2>
+<p class="lead">Cada uma com um papel claro na jornada.</p>
+<div class="cx-tools">
+<div><b>Lovable</b><span>Geração da página a partir do briefing</span></div>
+<div><b>Claude</b><span>Apoio em copy, estrutura e código simples</span></div>
+<div><b>n8n</b><span>Workflow que recebe e organiza a inscrição</span></div>
+<div><b>Webhook</b><span>Ponte entre o formulário e a automação</span></div>
+<div><b>Google Sheets</b><span>Destino que simula o CRM</span></div>
+<div><b>Campaign URL Builder</b><span>Links de campanha padronizados</span></div>
+<div><b>Google Tag Manager</b><span>Tags e acionadores sem mexer no código</span></div>
+<div><b>Google Analytics 4</b><span>Origem das visitas e eventos</span></div>
+</div>
+</section>
+
+<section id="aprendizados">
+<h2>Aprendizados</h2>
+<p class="lead">O que só aparece testando.</p>
+<div class="cx-learn">
+<div class="box soft"><span class="tag">GTM</span><h3>Condições no mesmo acionador valem como "E"</h3><p>Duas condições no mesmo acionador precisam ser verdadeiras ao mesmo tempo. Para "OU", use expressão regular ou mais de um acionador.</p></div>
+<div class="box soft"><span class="tag">GTM</span><h3>O GTM lê o link, não o destino</h3><p>Um botão de WhatsApp aponta para wa.me e só depois redireciona. A condição precisa usar o valor real da variável, conferido no Preview.</p></div>
+<div class="box soft"><span class="tag">UTM</span><h3>Padronize antes de virar dado sujo</h3><p>"organic", "organic_social" e "social" viram três linhas diferentes no relatório. Um padrão único, definido antes, evita isso.</p></div>
+<div class="box soft"><span class="tag">n8n</span><h3>Workflow inativo não recebe nada</h3><p>O primeiro envio falhou porque o workflow não estava ativo. O registro de execuções mostra na hora onde o dado parou.</p></div>
+</div>
+</section>
+
+<section id="contato">
+<div class="box soft"><h2>Quer conversar sobre isso?</h2><p class="lead" style="margin:0 auto">Páginas, tracking e automação são o tipo de problema que gosto de resolver.</p>
+<div class="ctas"><a class="btn wabtn" href="https://wa.me/5511979912151?text=Ol%C3%A1%20Rafael%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="mailto:rafael.dvs.01@gmail.com">rafael.dvs.01@gmail.com</a><a class="btn alt" href="/#cases">Ver outros cases</a></div></div>
+</section>
+</main>
+<footer><span>&copy; Rafael Del Valle · São Paulo, SP</span> <a href="/">Voltar ao portfólio &rarr;</a></footer>
+<script src="/i18n.js" defer></script>
+<script src="/i18n-novos.js" defer></script>
+<script src="/cases/captacao-automacao/i18n-case.js" defer></script>
+<script src="/site.js" defer></script>
+<script src="/cases/captacao-automacao/case.js" defer></script>
+</body>
+</html>

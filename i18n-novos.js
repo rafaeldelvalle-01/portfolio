@@ -3,6 +3,18 @@
 // Mesmo formato do i18n.js: "texto em português":"English text".
 // Se preferir, copie estas linhas para dentro do EN do i18n.js e apague este arquivo e a linha dele no index.html.
 Object.assign(EN,{
+"Web · Tracking · Automação":"Web · Tracking · Automation",
+"Da landing page ao lead rastreado":"From landing page to tracked lead",
+"Clique → planilha":"Click → spreadsheet",
+"cada inscrição chegando ao destino com a origem da campanha, sem desenvolvedor":"every sign-up reaching its destination with its campaign source, no developer needed",
+"Projeto de estudo para dominar o ciclo completo de uma página de captação: criar com IA, medir, rastrear a origem e automatizar a entrega do lead.":"A study project to master the full cycle of a lead-capture page: build it with AI, measure it, track the source and automate lead delivery.",
+"Landing page de pós-graduação gerada no Lovable e revisada à mão: copy, hierarquia, contraste e formulário.":"Graduate-program landing page generated in Lovable and reviewed by hand: copy, hierarchy, contrast and form.",
+"Campos ocultos que capturam as UTMs do link e viajam junto com cada inscrição.":"Hidden fields that capture the link's UTMs and travel with every sign-up.",
+"Webhook e workflow no n8n que organizam os dados e gravam o lead numa planilha.":"A webhook and n8n workflow that organize the data and write the lead to a spreadsheet.",
+"Google Tag Manager e GA4 no meu portfólio, com eventos validados no Preview.":"Google Tag Manager and GA4 on my portfolio, with events validated in Preview.",
+"Abrir case interativo →":"Open interactive case study →",
+"Web, tracking e automação":"Web, tracking and automation",
+"Dados estruturados":"Structured data","PageSpeed e Core Web Vitals":"PageSpeed and Core Web Vitals","WordPress e Elementor":"WordPress and Elementor","HTML e CSS":"HTML and CSS",
 "Sou a referência de marketing do grupo Athon, com reporte direto ao Diretor Geral, atendendo Athon Energia, PowerRev e Athon Capital. Cuido de marca, comunicação interna e externa, eventos e materiais de captação, do briefing ao resultado, com repertório de designer para tirar as ideias do papel.":"I lead marketing for the Athon group, reporting directly to the General Director and serving Athon Energia, PowerRev and Athon Capital. I own brand, internal and external communications, events and fundraising materials, from brief to results, with a designer's toolkit to bring ideas to life.",
 "Condução da agência no desenvolvimento do novo site da Athon Energia: briefing, reuniões, cobrança de entregas, revisão de textos e ajustes de layout.":"Led the agency behind Athon Energia's new website: briefing, meetings, delivery follow-up, copy review and layout adjustments.",
 "Gestão de agência":"Agency management",

@@ -4,7 +4,7 @@
     <loc>https://rafaeldelvalle.com.br/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rafaeldelvalle.com.br/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rafaeldelvalle.com.br/?lang=en"/>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -12,6 +12,13 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rafaeldelvalle.com.br/design/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rafaeldelvalle.com.br/design/?lang=en"/>
     <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rafaeldelvalle.com.br/cases/captacao-automacao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://rafaeldelvalle.com.br/cases/captacao-automacao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rafaeldelvalle.com.br/cases/captacao-automacao/?lang=en"/>
+    <lastmod>2026-10-21</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
