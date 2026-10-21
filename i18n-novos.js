@@ -3,7 +3,7 @@
 // Mesmo formato do i18n.js: "texto em português":"English text".
 // Se preferir, copie estas linhas para dentro do EN do i18n.js e apague este arquivo e a linha dele no index.html.
 Object.assign(EN,{
-"Landing pages":"Landing pages","Tracking de eventos":"Event tracking","GEO e AEO":"GEO and AEO","Webhooks":"Webhooks","Integração de formulários e CRM":"Form and CRM integration","Tracking e automação":"Tracking and automation","IA":"AI",
+"Landing pages":"Landing pages","Tracking de eventos":"Event tracking","GEO e AEO":"GEO and AEO","Webhooks":"Webhooks","Integração de formulários e CRM":"Form and CRM integration","Tracking e automação":"Tracking and automation","IA":"AI","IA generativa":"Generative AI",
 "Web · Tracking · Automação":"Web · Tracking · Automation",
 "Da landing page ao lead rastreado":"From landing page to tracked lead",
 "Clique → planilha":"Click → spreadsheet",
