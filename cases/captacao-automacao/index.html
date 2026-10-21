@@ -52,11 +52,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div><b>5 UTMs</b><span>capturadas em campos ocultos e entregues junto com cada inscrição</span></div>
 <div><b>0 leads perdidos</b><span>a inscrição é salva antes da automação, mesmo se ela falhar</span></div>
 </div>
-<p class="cx-note">Projeto de estudo com uma marca fictícia, a pós.digital. Endereços, IDs e dados reais foram omitidos. A simulação abaixo não envia nada.</p>
+<p class="cx-note">Projeto de estudo com uma marca fictícia, a pós.digital. IDs, endereços de integração e dados reais foram omitidos. Abaixo, você navega pela página publicada ou acompanha a jornada numa simulação que não envia nada.</p>
 </header>
 
 <section class="cx-lab" id="laboratorio" aria-label="Laboratório interativo">
 <div class="cx-left">
+<div class="cx-mode" role="group" aria-label="Modo de visualização"><button type="button" class="on" data-mode="real" aria-pressed="true">Página publicada</button><button type="button" data-mode="sim" aria-pressed="false">Simulação da jornada</button><a class="cx-ext" id="cx-ext" href="https://market-mastery-enrollment.lovable.app/" target="_blank" rel="noopener">Abrir em nova aba &#8599;</a></div>
 <div class="cx-origin" role="group" aria-label="De onde a pessoa veio">
 <span class="cx-origin-l">Origem da visita:</span>
 <button type="button" class="on" data-origin="instagram">Instagram</button>
@@ -66,8 +67,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="cx-browser">
-<div class="cx-bar"><span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span><div class="cx-url" aria-label="Endereço da página"><span class="cx-lock" aria-hidden="true"></span><span class="cx-host">pos.digital</span><span id="cx-query"></span></div></div>
-<div class="cx-site" id="cx-site" tabindex="0" aria-label="Página de captação simulada">
+<div class="cx-bar"><span class="cx-dots" aria-hidden="true"><i></i><i></i><i></i></span><div class="cx-url" aria-label="Endereço da página"><span class="cx-lock" aria-hidden="true"></span><span class="cx-host" id="cx-host">market-mastery-enrollment.lovable.app</span><span id="cx-query"></span></div></div>
+<iframe class="cx-real" id="cx-real" title="Landing page publicada no Lovable" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<div class="cx-site" id="cx-site" tabindex="0" aria-label="Página de captação simulada" hidden>
 
 <div class="lp-nav"><span class="lp-logo">pós.digital<em>*</em><small>EDUCAÇÃO</small></span><span class="lp-links"><a href="#lp-grade" data-lp="lp-grade">Grade</a><a href="#lp-faq" data-lp="lp-faq">FAQ</a><a href="#lp-form" data-lp="lp-form" class="lp-cta-s">Inscreva-se</a></span></div>
 
@@ -127,7 +129,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 
-<div class="cx-flow" aria-label="Caminho da inscrição">
+<p class="cx-realnote" id="cx-realnote">Esta é a página publicada no Lovable. Inscrições enviadas aqui chegam de verdade à planilha de teste. Para ver a jornada passo a passo, use a <button type="button" class="cx-link" data-mode="sim">Simulação da jornada</button>.</p>
+<div class="cx-flow" id="cx-flow" aria-label="Caminho da inscrição" hidden>
 <ol class="cx-nodes">
 <li data-node="0"><i>1</i><span>Página</span></li>
 <li data-node="1"><i>2</i><span>Webhook</span></li>

@@ -204,3 +204,13 @@
  .cx-utm .r,.cx-sheet tr.new td,.cx-wl.on:after,.lp-flash{animation:none}
  .cx-nodes li:after,.cx-nodes i,.cx-step{transition:none}
 }
+
+/* página publicada x simulação */
+.cx-mode{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.cx-mode button{font:inherit;font-size:.85rem;font-weight:700;border:0;background:var(--card);color:var(--acc);border-radius:12px;padding:8px 14px;cursor:pointer;transition:background .2s,color .2s}
+.cx-mode button.on{background:var(--acc);color:var(--on-acc)}
+.cx-ext{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--acc)}
+.cx-real{flex:1;min-height:0;width:100%;border:0;background:var(--lp1);display:block}
+.cx-real[hidden],.cx-site[hidden],.cx-flow[hidden],.cx-realnote[hidden]{display:none}
+.cx-realnote{margin:0;background:var(--card);border-radius:18px;padding:12px 14px;font-size:.85rem;color:var(--mut);line-height:1.5}
+.cx-link{font:inherit;font-weight:700;color:var(--acc);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
