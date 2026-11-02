@@ -91,7 +91,7 @@ var EN={
 "Ferramentas de marketing":"Marketing tools",
 "Idiomas":"Languages",
 "Português nativo":"Native Portuguese",
-"Inglês, leitura e escrita sólidas":"English, strong reading and writing",
+"Inglês avançado":"Advanced English",
 "Meu diferencial: a pós em Design Gráfico e anos de edição de vídeo me permitem ir da estratégia à peça pronta e briefar fornecedores com precisão.":"My edge: a postgraduate degree in Graphic Design and years of video editing let me go from strategy to finished piece and brief vendors with precision.",
 "Design de marca e comunicação":"Brand and communication design",
 "Design para SaaS B2B":"Design for B2B SaaS",
